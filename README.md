@@ -1,6 +1,6 @@
 # riscv-pipeline-core
-Implementation of a simple pipelined RISC V (rv32i) core
-
+Implementation of a simple unpipelined RISC V (rv32i) core
+![Simple](docs/images/simple-unpipelined-riscv.jpg)
 
 # Contributing to the project
 ## Basic Workflow
