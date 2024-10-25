@@ -21,12 +21,10 @@ git commit -m "Descriptive message about changes"
 ```bash
 git push origin feature/if_stage
 ```
-5. Creat a Pull Request (PR) on GitHub when your feature is complete
+5. Create a Pull Request (PR) on GitHub when your feature is complete  
 This step is as follows: 
-- Go to your GitHub repository in your web browser. You should see a yellow banner near the top with your recently pushed branch, with a green button that says  
-"Compare & pull request". Click that button.
-- If you don't see this banner, you can click on "Pull requests" tab, then the green "New pull request" button
-Then select your project-structure branch to compare against main
+- Go to your GitHub repository in your web browser. You should see a yellow banner near the top with your recently pushed branch, with a green button that says  "Compare & pull request". Click that button.
+- If you don't see this banner, you can click on "Pull requests" tab, then the green "New pull request" button. Then select your branch to compare against `main`
 - Fill out the PR form:
     - Write a clear title describing your change
     - In the description, explain what changes you made and why
