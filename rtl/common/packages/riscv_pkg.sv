@@ -20,7 +20,49 @@
     // Format: | imm[20] | imm[10:1] | imm[11] | imm[19:12] | rd | opcode |
     // Bits:   |    1    |     10    |    1    |     8      |  5 |    7   |
 //*****************************************************************************************
-package riscv_pkg; 
+package riscv_pkg;
+    // Architecture Parameters
+    `define XLEN 32             // Default XLEN (register width) for RV32I
+    `define ADDR 5              // Default ADDR (register address width) for RV32I (2^5 = 32 registers)
+
+    // Register Names
+    typedef enum logic [4:0] {
+        REG_ZERO = 5'b00000,        // x0   // Zero Register
+        REG_RA   = 5'b00001,        // x1   //Return Address
+        REG_SP   = 5'b00010,        // x2   //Stack Pointer
+        REG_GP   = 5'b00011,        // x3   //Global Pointer
+        REG_TP   = 5'b00100,        // x4   //Thread Pointer
+        REG_T0   = 5'b00101,        // x5   //Temporary Register 0
+        REG_T1   = 5'b00110,        // x6   //Temporary Register 1
+        REG_T2   = 5'b00111,        // x7   //Temporary Register 2
+        REG_S0   = 5'b01000,        // x8   //Saved register / frame pointer
+        REG_S1   = 5'b01001,        // x9   //Saved register
+        REG_A0   = 5'b01010,        // x10  //Function Argument / Returns
+        REG_A1   = 5'b01011,        // x11  
+        REG_A2   = 5'b01100,        // x12  
+        REG_A3   = 5'b01101,        // x13 
+        REG_A4   = 5'b01110,        // x14
+        REG_A5   = 5'b01111,        // x15
+        REG_A6   = 5'b10000,        // x16
+        REG_A7   = 5'b10001,        // x17
+        REG_S2   = 5'b10010,        // x18 //Saved registers
+        REG_S3   = 5'b10011,        // x19 
+        REG_S4   = 5'b10100,        // x20 
+        REG_S5   = 5'b10101,        // x21
+        REG_S6   = 5'b10110,        // x22
+        REG_S7   = 5'b10111,        // x23
+        REG_S8   = 5'b11000,        // x24
+        REG_S9   = 5'b11001,        // x25
+        REG_S10  = 5'b11010,        // x26
+        REG_S11  = 5'b11011,        // x27
+        REG_T3   = 5'b11100,        // x28 //Temporary registers
+        REG_T4   = 5'b11101,        // x29
+        REG_T5   = 5'b11110,        // x30
+        REG_T6   = 5'b11111         // x31
+    } register_name_t;
+
+
+
     //Base Instruction Opcodes
     typedef enum logic [6:0] {
         OPCODE_REG_IMM    = 7'b0010011,         // Register-Immediate operations (I-type)
