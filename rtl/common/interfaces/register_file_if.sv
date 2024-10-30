@@ -10,8 +10,7 @@
 // Author:        Reece Wayt
 ///////////////////////////////////////////////////////////////////////////////
 
-interface register_file_if #(
-);
+interface register_file_if ();
     import riscv_pkg::*;
 
     // Common Signals
@@ -50,8 +49,5 @@ interface register_file_if #(
               write_en, rd_addr, rd_data,
         output data_out_rs1, data_out_rs2              
     );
-
-
-
 
 endinterface: register_file_if 
