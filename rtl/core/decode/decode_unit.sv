@@ -90,7 +90,6 @@ module decode (
     assign rf_if.rs1_addr = decoded_instr.rs1;
     assign rf_if.rs2_addr = decoded_instr.rs2;
 
-
     always_ff @(posedge fd_if.clk) begin
         if(fd_if.valid && fd_if.ready) begin
             decoded_instr <= decode_instruction(fd_if.instruction, fd_if.pc);

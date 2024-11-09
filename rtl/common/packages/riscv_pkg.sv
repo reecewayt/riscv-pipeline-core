@@ -23,6 +23,7 @@
 package riscv_pkg;
     // Architecture Parameters
     `define DATA_WIDTH 32       // Default data width for RV32I
+    `define DATA_WIDTH 32       // Default data width for RV32I
     `define XLEN 32             // Default XLEN (register width) for RV32I
     `define ADDR 5              // Default ADDR (register address width) for RV32I (2^5 = 32 registers)
 
