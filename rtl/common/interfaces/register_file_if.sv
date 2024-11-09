@@ -31,13 +31,13 @@ interface register_file_if ();
     logic [XLEN-1:0] rd_data;
 
     // modport for decode stage
-    modport decode(
+    modport decode_reg(
         output rs1_add, rs2_addr                    //decode outputs these signals  
         input data_out_rs1, data_out_rs2            //decode receives these signals
     );
 
     //modport for execute stage
-    modport writeback(
+    modport writeback_reg(
         input clk,
         output write_en, rd_addr, rd_data
     );
