@@ -22,6 +22,7 @@
 //*****************************************************************************************
 package riscv_pkg;
     // Architecture Parameters
+    `define DATA_WIDTH 32       // Default data width for RV32I
     `define XLEN 32             // Default XLEN (register width) for RV32I
     `define ADDR 5              // Default ADDR (register address width) for RV32I (2^5 = 32 registers)
 
@@ -63,16 +64,22 @@ package riscv_pkg;
 
 
 
-    //Base Instruction Opcodes
     typedef enum logic [6:0] {
-        OPCODE_REG_IMM    = 7'b0010011,         // Register-Immediate operations (I-type)
-        OPCODE_REG_REG    = 7'b0110011,         // Register-Register operations (R-type)
-        OPCODE_LOAD       = 7'b0000011,         // Load operations (I-type)
-        OPCODE_STORE      = 7'b0100011,         // Store operations (S-type)
-        OPCODE_BRANCH     = 7'b1100011,         // Branch operations (B-type)
-        //TODO: Add more opcodes
-        //OPCODE_JAL        = 7'b1101111,         // Jump and Link (J-type)
-        //OPCODE_JALR       = 7'b1100111          // Jump and Link Register (I-type)
+        // I-type instructions
+        OPCODE_REG_IMM    = 7'b0010011,  // Register-Immediate operations (addi, slti, etc.)
+        OPCODE_LOAD       = 7'b0000011,  // Load operations (lw, lh, lb)
+        OPCODE_JALR       = 7'b1100111,  // Jump and Link Register
+        // R-type instructions
+        OPCODE_REG_REG    = 7'b0110011,  // Register-Register operations (add, sub, etc.)
+        // S-type instructions
+        OPCODE_STORE      = 7'b0100011,  // Store operations (sw, sh, sb)
+        // B-type instructions
+        OPCODE_BRANCH     = 7'b1100011,  // Branch operations (beq, bne, etc.)
+        // U-type instructions
+        OPCODE_LUI        = 7'b0110111,  // Load Upper Immediate
+        OPCODE_AUIPC      = 7'b0010111,  // Add Upper Immediate to PC
+        // J-type instruction
+        OPCODE_JAL        = 7'b1101111   // Jump and Link
     } opcode_t;
 
     // ALU functions Codes (funct3)
@@ -94,6 +101,21 @@ package riscv_pkg;
         F7_SRL  = 7'b0000000,  // Shift Right Logical
         F7_SRA  = 7'b0100000   // Shift Right Arithmetic
     } funct7_t;
+
+    // Decoded Instruction Structure, plus immediate value and operands Regs[rs1] and Regs[rs2]
+    typedef struct packed {
+        opcode_t opcode;            // Instruction opcode
+        register_name_t rd;         // Destination register
+        register_name_t rs1;        // Source register 1
+        register_name_t rs2;        // Source register 2
+        funct3_t funct3;            // ALU function code
+        funct7_t funct7;            // ALU function code
+        logic [DATA_WIDTH-1:0] pc;  // Program Counter
+        logic [XLEN-1:0] reg_A;     // Regs[rs1]
+        logic [XLEN-1:0] reg_B;     // Regs[rs2]
+        logic [11:0] imm;           // Immediate value
+    } decoded_instr_t;
+
 
     // Instruction encoding functions 
     function automatic logic [31:0] encode_r_type(
