@@ -7,6 +7,7 @@
 
 module register_file_tb;
     import riscv_pkg::*;
+    import reg_file_test_pkg::*;
     
     // Clock generation
     logic clk = 0;
@@ -25,109 +26,29 @@ module register_file_tb;
     
     // Verification environment instance
     reg_env env;
+    reg_test_seq test;
     
-    // Test sequence class
-    class reg_test_seq;
-        virtual register_file_if vif;
-        mailbox #(reg_transaction) drv_mbx;
-        
-        function new(virtual register_file_if vif, mailbox #(reg_transaction) drv_mbx);
-            this.vif = vif;
-            this.drv_mbx = drv_mbx;
-        endfunction
-        
-        // Basic write-read sequence
-        task write_read_test();
-            reg_transaction trans;
-            
-            // Write to registers 1-5
-            for(int i = 1; i <= 5; i++) begin
-                trans = new();
-                trans.op_type = reg_transaction::WRITE_RD;
-                trans.addr = i;
-                trans.data = i * 32'h11111111;  // Unique pattern for each register
-                drv_mbx.put(trans);
-                #10;  // Wait for write to complete
-                
-                // Read back using RS1
-                trans = new();
-                trans.op_type = reg_transaction::READ_RS1;
-                trans.addr = i;
-                drv_mbx.put(trans);
-                #10;
-                
-                // Read back using RS2
-                trans = new();
-                trans.op_type = reg_transaction::READ_RS2;
-                trans.addr = i;
-                drv_mbx.put(trans);
-                #10;
-            end
-        endtask
-        
-        // Test x0 behavior
-        task test_zero_register();
-            reg_transaction trans;
-            
-            // Try to write to x0
-            trans = new();
-            trans.op_type = reg_transaction::WRITE_RD;
-            trans.addr = 0;
-            trans.data = 32'hFFFFFFFF;
-            drv_mbx.put(trans);
-            #10;
-            
-            // Read x0 from both ports
-            trans = new();
-            trans.op_type = reg_transaction::READ_RS1;
-            trans.addr = 0;
-            drv_mbx.put(trans);
-            #10;
-            
-            trans = new();
-            trans.op_type = reg_transaction::READ_RS2;
-            trans.addr = 0;
-            drv_mbx.put(trans);
-            #10;
-        endtask
-        
-        // Concurrent read test
-        task test_concurrent_reads();
-            reg_transaction trans;
-            
-            // Write different values to two registers
-            trans = new();
-            trans.op_type = reg_transaction::WRITE_RD;
-            trans.addr = 1;
-            trans.data = 32'hAAAAAAAA;
-            drv_mbx.put(trans);
-            #10;
-            
-            trans = new();
-            trans.op_type = reg_transaction::WRITE_RD;
-            trans.addr = 2;
-            trans.data = 32'h55555555;
-            drv_mbx.put(trans);
-            #10;
-            
-            // Read both simultaneously
-            fork
-                begin
-                    trans = new();
-                    trans.op_type = reg_transaction::READ_RS1;
-                    trans.addr = 1;
-                    drv_mbx.put(trans);
-                end
-                begin
-                    trans = new();
-                    trans.op_type = reg_transaction::READ_RS2;
-                    trans.addr = 2;
-                    drv_mbx.put(trans);
-                end
-            join
-            #10;
-        endtask
-    endclass
+    // Assertions
+    // Check that write enable is never active during reset
+    property write_during_reset;
+        @(posedge clk) !rf_if.rst_n |-> !rf_if.write_en;
+    endproperty
+    assert property(write_during_reset) else 
+        $error("Write enable active during reset");
+    
+    // Check that x0 reads always return 0 (RS1)
+    property x0_always_zero_rs1;
+        @(posedge clk) (rf_if.rs1_addr == 0) |-> (rf_if.data_out_rs1 == 0);
+    endproperty
+    assert property(x0_always_zero_rs1) else 
+        $error("RS1: x0 read returned non-zero value: %h", rf_if.data_out_rs1);
+    
+    // Check that x0 reads always return 0 (RS2)
+    property x0_always_zero_rs2;
+        @(posedge clk) (rf_if.rs2_addr == 0) |-> (rf_if.data_out_rs2 == 0);
+    endproperty
+    assert property(x0_always_zero_rs2) else 
+        $error("RS2: x0 read returned non-zero value: %h", rf_if.data_out_rs2);
     
     // Test execution
     initial begin
@@ -135,7 +56,7 @@ module register_file_tb;
         env = new(rf_if);
         
         // Create test sequence
-        reg_test_seq test = new(rf_if, env.drv_mbx);
+        test = new(rf_if, env.drv_mbx);
         
         // Reset sequence
         rf_if.rst_n = 0;
@@ -177,20 +98,5 @@ module register_file_tb;
         $dumpfile("reg_file_tb.vcd");
         $dumpvars(0, register_file_tb);
     end
-    
-    // Assertions
-    // Check that write enable is never active during reset
-    property write_during_reset;
-        @(posedge clk) !rf_if.rst_n |-> !rf_if.write_en;
-    endproperty
-    assert property(write_during_reset);
-    
-    // Check that x0 reads always return 0
-    property x0_always_zero;
-        @(posedge clk)
-        ((rf_if.rs1_addr == 0) |-> (rf_if.data_out_rs1 == 0)) &&
-        ((rf_if.rs2_addr == 0) |-> (rf_if.data_out_rs2 == 0));
-    endproperty
-    assert property(x0_always_zero);
     
 endmodule

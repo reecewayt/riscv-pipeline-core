@@ -22,10 +22,9 @@
 //*****************************************************************************************
 package riscv_pkg;
     // Architecture Parameters
-    `define DATA_WIDTH 32       // Default data width for RV32I
-    `define DATA_WIDTH 32       // Default data width for RV32I
-    `define XLEN 32             // Default XLEN (register width) for RV32I
-    `define ADDR 5              // Default ADDR (register address width) for RV32I (2^5 = 32 registers)
+    parameter DATA_WIDTH = 32;
+    parameter XLEN = 32; 
+    parameter ADDR = 5;
 
     // Register Names
     typedef enum logic [4:0] {
@@ -97,10 +96,8 @@ package riscv_pkg;
 
     // ALU functions Codes (funct7)
     typedef enum logic [6:0] {
-        F7_ADD  = 7'b0000000,  // ADD operation
-        F7_SUB  = 7'b0100000   // SUB operation
-        F7_SRL  = 7'b0000000,  // Shift Right Logical
-        F7_SRA  = 7'b0100000   // Shift Right Arithmetic
+        F7_ADD_SRL  = 7'b0000000,   // ADD or SRL Operation
+        F7_SUB_SRA  = 7'b0100000    // SUB or SRA Operation
     } funct7_t;
 
     // Decoded Instruction Structure, plus immediate value and operands Regs[rs1] and Regs[rs2]
@@ -166,5 +163,5 @@ package riscv_pkg;
         input logic [20:0] imm
     );
         return {imm[20], imm[10:1], imm[11], imm[19:12], rd, opcode};
-    
+    endfunction 
 endpackage: riscv_pkg
