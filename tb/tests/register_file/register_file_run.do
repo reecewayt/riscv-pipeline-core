@@ -1,3 +1,5 @@
+# Running: vsim -c -do ../register_file_run.do
+
 # Clean up and create work directory
 if [file exists "work"] {vdel -all}
 vlib work

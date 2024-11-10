@@ -8,26 +8,40 @@
 module register_file_tb;
     import riscv_pkg::*;
     import reg_file_test_pkg::*;
-    
-    // Clock generation
+   
     logic clk = 0;
-    always #5 clk = ~clk;  // 100MHz clock
-    
-    // Interface instance
+    always #5 clk = ~clk;
+   
     register_file_if rf_if();
-    
-    // Clock and reset connections
     assign rf_if.clk = clk;
-    
-    // DUT instantiation
+   
     register_file dut (
         .rf_if(rf_if.register_file)
     );
-    
-    // Verification environment instance
-    reg_env env;
-    reg_test_seq test;
-    
+   
+    reg_test_driver test;
+
+    // Simple test sequence
+    initial begin
+        test = new(rf_if);
+
+        // Reset
+        rf_if.write_en = 0;
+        rf_if.rst_n = 0;
+        #100 rf_if.rst_n = 1;
+        #100;
+
+        // Run tests
+        test.run_basic_test();
+        #100;
+        test.run_concurrent_test();
+        #100;
+
+        // Report results
+        test.report_status();
+        $finish;
+    end
+
     // Assertions
     // Check that write enable is never active during reset
     property write_during_reset;
@@ -49,49 +63,6 @@ module register_file_tb;
     endproperty
     assert property(x0_always_zero_rs2) else 
         $error("RS2: x0 read returned non-zero value: %h", rf_if.data_out_rs2);
-    
-    // Test execution
-    initial begin
-        // Create verification environment
-        env = new(rf_if);
-        
-        // Create test sequence
-        test = new(rf_if, env.drv_mbx);
-        
-        // Reset sequence
-        rf_if.rst_n = 0;
-        #100;
-        rf_if.rst_n = 1;
-        #100;
-        
-        // Start verification components
-        env.run();
-        
-        // Run test sequences
-        $display("\nStarting write-read test...");
-        test.write_read_test();
-        #100;
-        
-        $display("\nTesting x0 register...");
-        test.test_zero_register();
-        #100;
-        
-        $display("\nTesting concurrent reads...");
-        test.test_concurrent_reads();
-        #100;
-        
-        // Wait for completion and check results
-        #1000;
-        env.scoreboard.report_status();
-        $finish;
-    end
-    
-    // Timeout watchdog
-    initial begin
-        #100000;  // Adjust timeout as needed
-        $display("TEST TIMEOUT!");
-        $finish;
-    end
     
     // Optional: Waveform dumping
     initial begin
