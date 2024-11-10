@@ -1,0 +1,2381 @@
+# do ../register_file_run.do
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:02:52 on Nov 09,2024
+# vlog "+define+DEBUG" "+incdir+../../../../rtl/common/packages" "+incdir+../../../../rtl/common/interfaces" ../../../../rtl/common/packages/riscv_pkg.sv ../../../../tb/common/reg_file_test_pkg.sv 
+# -- Compiling package riscv_pkg
+# -- Compiling package reg_file_test_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 17:02:52 on Nov 09,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:02:52 on Nov 09,2024
+# vlog "+define+DEBUG" "+incdir+../../../../rtl/common/packages" ../../../../rtl/common/interfaces/register_file_if.sv 
+# -- Compiling interface register_file_if
+# -- Importing package riscv_pkg
+# 
+# Top level modules:
+# 	--none--
+# End time: 17:02:52 on Nov 09,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:02:52 on Nov 09,2024
+# vlog "+define+DEBUG" "+incdir+../../../../rtl/common/packages" "+incdir+../../../../rtl/common/interfaces" ../../../../rtl/core/decode/register_file.sv 
+# -- Compiling module register_file
+# -- Importing package riscv_pkg
+# 
+# Top level modules:
+# 	register_file
+# End time: 17:02:52 on Nov 09,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:02:52 on Nov 09,2024
+# vlog "+define+DEBUG" "+incdir+../../../../rtl/common/packages" "+incdir+../../../../rtl/common/interfaces" "+incdir+../../../../tb/common" ../register_file_tb.sv 
+# -- Compiling module register_file_tb
+# -- Importing package riscv_pkg
+# -- Importing package reg_file_test_pkg
+# 
+# Top level modules:
+# 	register_file_tb
+# End time: 17:02:53 on Nov 09,2024, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -c -voptargs="+acc" work.register_file_tb 
+# Start time: 17:02:53 on Nov 09,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# //  Questa Sim-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.register_file_if(fast)
+# Loading work.reg_file_test_pkg(fast)
+# Loading work.riscv_pkg(fast)
+# Loading work.register_file_tb(fast)
+# Loading work.register_file_if(fast__2)
+# Loading work.register_file(fast)
+# [SCOREBOARD] Created register file scoreboard
+# ** Error: Write enable active during reset
+#    Time: 5 ns Started: 5 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# ** Error: Write enable active during reset
+#    Time: 15 ns Started: 15 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# ** Error: Write enable active during reset
+#    Time: 25 ns Started: 25 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# ** Error: Write enable active during reset
+#    Time: 35 ns Started: 35 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# ** Error: Write enable active during reset
+#    Time: 45 ns Started: 45 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# ** Error: Write enable active during reset
+#    Time: 55 ns Started: 55 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# ** Error: Write enable active during reset
+#    Time: 65 ns Started: 65 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# ** Error: Write enable active during reset
+#    Time: 75 ns Started: 75 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# ** Error: Write enable active during reset
+#    Time: 85 ns Started: 85 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# ** Error: Write enable active during reset
+#    Time: 95 ns Started: 95 ns  Scope: register_file_tb File: ../register_file_tb.sv Line: 37
+# 
+# Starting write-read test...
+# [MONITOR] Starting at time 200000
+# [SCOREBOARD] Starting at time 200000
+# Transaction: op_type=WRITE_RD addr=1 data=11111111
+# [MONITOR] Time=215000: RS1 Read from x1 returned data=xxxxxxxx
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 00000000
+#    Time: 215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      xxxxxxxx
+#    Time: 215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     xxxxxxxx
+#    Time: 215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS1 addr=1 data=x
+#           read_data=0
+# [MONITOR] Time=225000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=225000: RS2 Read from x1 returned data=xxxxxxxx
+# ** Info: [SCOREBOARD] RS1 Read Success - Register x1 = 00000000
+#    Time: 225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_success File: ../../../../tb/common/reg_file_test_pkg.sv Line: 679
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x1:
+#    Time: 225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 00000000
+#    Time: 225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      xxxxxxxx
+#    Time: 225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     xxxxxxxx
+#    Time: 225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS2 addr=1 data=x
+#           read_data=0
+# [MONITOR] Time=235000: Write to x2 with data=22222222
+# [MONITOR] Time=235000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=235000: RS2 Read from x1 returned data=00000000
+# ** Info: [SCOREBOARD] Write to Register x2 = 22222222
+#    Time: 235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_write File: ../../../../tb/common/reg_file_test_pkg.sv Line: 685
+# ** Info: [SCOREBOARD] RS1 Read Success - Register x1 = 00000000
+#    Time: 235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_success File: ../../../../tb/common/reg_file_test_pkg.sv Line: 679
+# ** Info: [SCOREBOARD] RS2 Read Success - Register x1 = 00000000
+#    Time: 235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_success File: ../../../../tb/common/reg_file_test_pkg.sv Line: 679
+# Transaction: op_type=WRITE_RD addr=2 data=22222222
+# [MONITOR] Time=245000: RS1 Read from x2 returned data=00000000
+# [MONITOR] Time=245000: RS2 Read from x1 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x2:
+#    Time: 245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 22222222
+#    Time: 245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     22222222
+#    Time: 245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Info: [SCOREBOARD] RS2 Read Success - Register x1 = 00000000
+#    Time: 245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_success File: ../../../../tb/common/reg_file_test_pkg.sv Line: 679
+# Transaction: op_type=READ_RS1 addr=2 data=x
+#           read_data=0
+# [MONITOR] Time=255000: RS1 Read from x2 returned data=00000000
+# [MONITOR] Time=255000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x2:
+#    Time: 255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 22222222
+#    Time: 255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     22222222
+#    Time: 255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 22222222
+#    Time: 255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     22222222
+#    Time: 255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS2 addr=2 data=x
+#           read_data=0
+# [MONITOR] Time=265000: Write to x3 with data=33333333
+# [MONITOR] Time=265000: RS1 Read from x2 returned data=00000000
+# [MONITOR] Time=265000: RS2 Read from x2 returned data=00000000
+# ** Info: [SCOREBOARD] Write to Register x3 = 33333333
+#    Time: 265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_write File: ../../../../tb/common/reg_file_test_pkg.sv Line: 685
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x2:
+#    Time: 265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 22222222
+#    Time: 265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     22222222
+#    Time: 265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 22222222
+#    Time: 265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     22222222
+#    Time: 265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=WRITE_RD addr=3 data=33333333
+# [MONITOR] Time=275000: RS1 Read from x3 returned data=00000000
+# [MONITOR] Time=275000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x3:
+#    Time: 275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 33333333
+#    Time: 275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     33333333
+#    Time: 275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 22222222
+#    Time: 275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     22222222
+#    Time: 275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS1 addr=3 data=x
+#           read_data=0
+# [MONITOR] Time=285000: RS1 Read from x3 returned data=00000000
+# [MONITOR] Time=285000: RS2 Read from x3 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x3:
+#    Time: 285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 33333333
+#    Time: 285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     33333333
+#    Time: 285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x3:
+#    Time: 285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 33333333
+#    Time: 285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     33333333
+#    Time: 285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS2 addr=3 data=x
+#           read_data=0
+# [MONITOR] Time=295000: Write to x4 with data=44444444
+# [MONITOR] Time=295000: RS1 Read from x3 returned data=00000000
+# [MONITOR] Time=295000: RS2 Read from x3 returned data=00000000
+# ** Info: [SCOREBOARD] Write to Register x4 = 44444444
+#    Time: 295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_write File: ../../../../tb/common/reg_file_test_pkg.sv Line: 685
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x3:
+#    Time: 295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 33333333
+#    Time: 295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     33333333
+#    Time: 295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x3:
+#    Time: 295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 33333333
+#    Time: 295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     33333333
+#    Time: 295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=WRITE_RD addr=4 data=44444444
+# 
+# Testing x0 register...
+# [MONITOR] Time=305000: RS1 Read from x4 returned data=00000000
+# [MONITOR] Time=305000: RS2 Read from x3 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x4:
+#    Time: 305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 44444444
+#    Time: 305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     44444444
+#    Time: 305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x3:
+#    Time: 305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 33333333
+#    Time: 305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     33333333
+#    Time: 305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS1 addr=4 data=x
+#           read_data=0
+# [MONITOR] Time=315000: RS1 Read from x4 returned data=00000000
+# [MONITOR] Time=315000: RS2 Read from x4 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x4:
+#    Time: 315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 44444444
+#    Time: 315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     44444444
+#    Time: 315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x4:
+#    Time: 315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 44444444
+#    Time: 315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     44444444
+#    Time: 315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS2 addr=4 data=x
+#           read_data=0
+# [MONITOR] Time=325000: Write to x5 with data=55555555
+# [MONITOR] Time=325000: RS1 Read from x4 returned data=00000000
+# [MONITOR] Time=325000: RS2 Read from x4 returned data=00000000
+# ** Info: [SCOREBOARD] Write to Register x5 = 55555555
+#    Time: 325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_write File: ../../../../tb/common/reg_file_test_pkg.sv Line: 685
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x4:
+#    Time: 325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 44444444
+#    Time: 325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     44444444
+#    Time: 325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x4:
+#    Time: 325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 44444444
+#    Time: 325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     44444444
+#    Time: 325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=WRITE_RD addr=5 data=55555555
+# [MONITOR] Time=335000: RS1 Read from x5 returned data=00000000
+# [MONITOR] Time=335000: RS2 Read from x4 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x5:
+#    Time: 335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x4:
+#    Time: 335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 44444444
+#    Time: 335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     44444444
+#    Time: 335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS1 addr=5 data=x
+#           read_data=0
+# [MONITOR] Time=345000: RS1 Read from x5 returned data=00000000
+# [MONITOR] Time=345000: RS2 Read from x5 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x5:
+#    Time: 345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x5:
+#    Time: 345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS2 addr=5 data=x
+#           read_data=0
+# [MONITOR] Time=355000: Write to x0 with data=ffffffff
+# [MONITOR] Time=355000: RS1 Read from x5 returned data=00000000
+# [MONITOR] Time=355000: RS2 Read from x5 returned data=00000000
+# ** Info: [SCOREBOARD] Ignored write to x0: data=ffffffff
+#    Time: 355 ns  Scope: reg_file_test_pkg.reg_scoreboard.run File: ../../../../tb/common/reg_file_test_pkg.sv Line: 644
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x5:
+#    Time: 355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x5:
+#    Time: 355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=WRITE_RD addr=0 data=ffffffff
+# [MONITOR] Time=365000: RS2 Read from x5 returned data=00000000
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x5:
+#    Time: 365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS1 addr=0 data=x
+#           read_data=0
+# Transaction: op_type=READ_RS2 addr=0 data=x
+#           read_data=0
+# 
+# Testing concurrent reads...
+# [MONITOR] Time=405000: Write to x1 with data=aaaaaaaa
+# ** Info: [SCOREBOARD] Write to Register x1 = aaaaaaaa
+#    Time: 405 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_write File: ../../../../tb/common/reg_file_test_pkg.sv Line: 685
+# Transaction: op_type=WRITE_RD addr=1 data=aaaaaaaa
+# [MONITOR] Time=415000: Write to x2 with data=55555555
+# ** Info: [SCOREBOARD] Write to Register x2 = 55555555
+#    Time: 415 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_write File: ../../../../tb/common/reg_file_test_pkg.sv Line: 685
+# Transaction: op_type=WRITE_RD addr=2 data=55555555
+# [MONITOR] Time=425000: RS1 Read from x1 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS1 addr=1 data=x
+#           read_data=0
+# [MONITOR] Time=435000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=435000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# Transaction: op_type=READ_RS2 addr=2 data=x
+#           read_data=0
+# [MONITOR] Time=445000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=445000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=455000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=455000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=465000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=465000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=475000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=475000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=485000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=485000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=495000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=495000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=505000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=505000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 505 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 505 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 505 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 505 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 505 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 505 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 505 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 505 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=515000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=515000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 515 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 515 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 515 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 515 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 515 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 515 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 515 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 515 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=525000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=525000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 525 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 525 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 525 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 525 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 525 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 525 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 525 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 525 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=535000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=535000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 535 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 535 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 535 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 535 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 535 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 535 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 535 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 535 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=545000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=545000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 545 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 545 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 545 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 545 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 545 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 545 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 545 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 545 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=555000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=555000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 555 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 555 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 555 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 555 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 555 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 555 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 555 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 555 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=565000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=565000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 565 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 565 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 565 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 565 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 565 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 565 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 565 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 565 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=575000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=575000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 575 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 575 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 575 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 575 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 575 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 575 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 575 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 575 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=585000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=585000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 585 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 585 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 585 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 585 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 585 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 585 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 585 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 585 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=595000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=595000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 595 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 595 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 595 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 595 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 595 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 595 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 595 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 595 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=605000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=605000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 605 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 605 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 605 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 605 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 605 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 605 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 605 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 605 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=615000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=615000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 615 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 615 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 615 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 615 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 615 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 615 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 615 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 615 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=625000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=625000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 625 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 625 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 625 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 625 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 625 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 625 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 625 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 625 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=635000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=635000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 635 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 635 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 635 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 635 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 635 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 635 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 635 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 635 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=645000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=645000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 645 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 645 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 645 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 645 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 645 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 645 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 645 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 645 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=655000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=655000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 655 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 655 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 655 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 655 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 655 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 655 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 655 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 655 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=665000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=665000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 665 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 665 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 665 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 665 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 665 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 665 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 665 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 665 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=675000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=675000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 675 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 675 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 675 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 675 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 675 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 675 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 675 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 675 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=685000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=685000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 685 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 685 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 685 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 685 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 685 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 685 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 685 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 685 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=695000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=695000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 695 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 695 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 695 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 695 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 695 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 695 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 695 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 695 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=705000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=705000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 705 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 705 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 705 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 705 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 705 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 705 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 705 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 705 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=715000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=715000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 715 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 715 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 715 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 715 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 715 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 715 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 715 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 715 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=725000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=725000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 725 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 725 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 725 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 725 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 725 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 725 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 725 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 725 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=735000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=735000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 735 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 735 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 735 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 735 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 735 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 735 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 735 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 735 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=745000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=745000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 745 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 745 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 745 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 745 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 745 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 745 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 745 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 745 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=755000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=755000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 755 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 755 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 755 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 755 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 755 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 755 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 755 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 755 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=765000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=765000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 765 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 765 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 765 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 765 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 765 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 765 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 765 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 765 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=775000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=775000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 775 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 775 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 775 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 775 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 775 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 775 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 775 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 775 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=785000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=785000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 785 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 785 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 785 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 785 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 785 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 785 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 785 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 785 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=795000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=795000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 795 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 795 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 795 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 795 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 795 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 795 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 795 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 795 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=805000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=805000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 805 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 805 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 805 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 805 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 805 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 805 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 805 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 805 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=815000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=815000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 815 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 815 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 815 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 815 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 815 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 815 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 815 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 815 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=825000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=825000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 825 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 825 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 825 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 825 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 825 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 825 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 825 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 825 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=835000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=835000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 835 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 835 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 835 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 835 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 835 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 835 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 835 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 835 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=845000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=845000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 845 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 845 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 845 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 845 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 845 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 845 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 845 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 845 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=855000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=855000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 855 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 855 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 855 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 855 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 855 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 855 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 855 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 855 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=865000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=865000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 865 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 865 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 865 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 865 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 865 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 865 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 865 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 865 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=875000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=875000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 875 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 875 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 875 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 875 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 875 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 875 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 875 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 875 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=885000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=885000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 885 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 885 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 885 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 885 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 885 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 885 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 885 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 885 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=895000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=895000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 895 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 895 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 895 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 895 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 895 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 895 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 895 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 895 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=905000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=905000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 905 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 905 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 905 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 905 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 905 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 905 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 905 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 905 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=915000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=915000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 915 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 915 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 915 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 915 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 915 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 915 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 915 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 915 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=925000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=925000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 925 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 925 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 925 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 925 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 925 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 925 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 925 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 925 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=935000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=935000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 935 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 935 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 935 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 935 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 935 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 935 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 935 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 935 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=945000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=945000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 945 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 945 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 945 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 945 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 945 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 945 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 945 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 945 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=955000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=955000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 955 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 955 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 955 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 955 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 955 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 955 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 955 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 955 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=965000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=965000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 965 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 965 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 965 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 965 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 965 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 965 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 965 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 965 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=975000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=975000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 975 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 975 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 975 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 975 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 975 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 975 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 975 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 975 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=985000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=985000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 985 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 985 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 985 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 985 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 985 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 985 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 985 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 985 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=995000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=995000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 995 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 995 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 995 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 995 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 995 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 995 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 995 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 995 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1005000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1005000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1005 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1005 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1005 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1005 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1005 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1005 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1005 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1005 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1015000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1015000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1015 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1015 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1015 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1015 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1015 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1015 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1015 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1015 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1025000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1025000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1025 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1025 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1025 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1025 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1025 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1025 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1025 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1025 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1035000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1035000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1035 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1035 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1035 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1035 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1035 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1035 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1035 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1035 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1045000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1045000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1045 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1045 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1045 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1045 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1045 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1045 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1045 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1045 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1055000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1055000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1055 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1055 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1055 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1055 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1055 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1055 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1055 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1055 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1065000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1065000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1065 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1065 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1065 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1065 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1065 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1065 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1065 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1065 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1075000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1075000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1075 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1075 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1075 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1075 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1075 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1075 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1075 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1075 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1085000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1085000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1085 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1085 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1085 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1085 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1085 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1085 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1085 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1085 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1095000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1095000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1095 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1095 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1095 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1095 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1095 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1095 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1095 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1095 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1105000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1105000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1105 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1105 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1105 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1105 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1105 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1105 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1105 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1105 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1115000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1115000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1115 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1115 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1115 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1115 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1115 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1115 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1115 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1115 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1125000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1125000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1125 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1125 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1125 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1125 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1125 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1125 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1125 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1125 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1135000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1135000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1135 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1135 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1135 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1135 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1135 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1135 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1135 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1135 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1145000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1145000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1145 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1145 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1145 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1145 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1145 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1145 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1145 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1145 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1155000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1155000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1155 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1155 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1155 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1155 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1155 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1155 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1155 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1155 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1165000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1165000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1165 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1165 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1165 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1165 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1165 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1165 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1165 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1165 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1175000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1175000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1175 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1175 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1175 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1175 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1175 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1175 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1175 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1175 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1185000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1185000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1185 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1185 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1185 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1185 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1185 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1185 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1185 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1185 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1195000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1195000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1195 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1195 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1195 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1195 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1195 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1195 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1195 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1195 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1205000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1205000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1205 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1205 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1205 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1205 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1205 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1205 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1205 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1205 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1215000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1215000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1215 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1225000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1225000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1225 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1235000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1235000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1235 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1245000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1245000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1245 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1255000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1255000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1255 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1265000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1265000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1265 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1275000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1275000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1275 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1285000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1285000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1285 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1295000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1295000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1295 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1305000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1305000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1305 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1315000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1315000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1315 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1325000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1325000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1325 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1335000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1335000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1335 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1345000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1345000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1345 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1355000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1355000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1355 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1365000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1365000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1365 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1375000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1375000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1375 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1375 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1375 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1375 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1375 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1375 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1375 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1375 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1385000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1385000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1385 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1385 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1385 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1385 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1385 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1385 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1385 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1385 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1395000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1395000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1395 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1395 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1395 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1395 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1395 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1395 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1395 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1395 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1405000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1405000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1405 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1405 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1405 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1405 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1405 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1405 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1405 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1405 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1415000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1415000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1415 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1415 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1415 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1415 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1415 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1415 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1415 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1415 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1425000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1425000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1425 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1435000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1435000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1435 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1445000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1445000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1445 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1455000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1455000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1455 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1465000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1465000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1465 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1475000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1475000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1475 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1485000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1485000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1485 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# [MONITOR] Time=1495000: RS1 Read from x1 returned data=00000000
+# [MONITOR] Time=1495000: RS2 Read from x2 returned data=00000000
+# ** Error: [SCOREBOARD] RS1 Read Mismatch - Register x1:
+#    Time: 1495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: aaaaaaaa
+#    Time: 1495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     aaaaaaaa
+#    Time: 1495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# ** Error: [SCOREBOARD] RS2 Read Mismatch - Register x2:
+#    Time: 1495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 669
+# ** Error:            Expected: 55555555
+#    Time: 1495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 670
+# ** Error:            Got:      00000000
+#    Time: 1495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 671
+# ** Error:            Diff:     55555555
+#    Time: 1495 ns  Scope: reg_file_test_pkg.reg_scoreboard.report_error File: ../../../../tb/common/reg_file_test_pkg.sv Line: 672
+# 
+# === Scoreboard Status at time 1500210 ===
+# Total Checks:     252
+# Total Errors:     241
+# Write Operations: 7
+# RS1 Reads:        123
+# RS2 Reads:        122
+# Error Rate:       95.634921%
+# 
+# === Register File State ===
+# x0 = 00000000
+# x1 = aaaaaaaa
+# x2 = 55555555
+# x3 = 33333333
+# x4 = 44444444
+# x5 = 55555555
+# x6 = 00000000
+# x7 = 00000000
+# x8 = 00000000
+# x9 = 00000000
+# x10 = 00000000
+# x11 = 00000000
+# x12 = 00000000
+# x13 = 00000000
+# x14 = 00000000
+# x15 = 00000000
+# x16 = 00000000
+# x17 = 00000000
+# x18 = 00000000
+# x19 = 00000000
+# x20 = 00000000
+# x21 = 00000000
+# x22 = 00000000
+# x23 = 00000000
+# x24 = 00000000
+# x25 = 00000000
+# x26 = 00000000
+# x27 = 00000000
+# x28 = 00000000
+# x29 = 00000000
+# x30 = 00000000
+# x31 = 00000000
+# ** Note: $finish    : ../register_file_tb.sv(86)
+#    Time: 1500210 ps  Iteration: 0  Instance: /register_file_tb
+# End time: 17:02:55 on Nov 09,2024, Elapsed time: 0:00:02
+# Errors: 974, Warnings: 1
