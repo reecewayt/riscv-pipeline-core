@@ -27,7 +27,7 @@ package riscv_pkg;
         OPCODE_REG_REG    = 7'b0110011,         // Register-Register operations (R-type)
         OPCODE_LOAD       = 7'b0000011,         // Load operations (I-type)
         OPCODE_STORE      = 7'b0100011,         // Store operations (S-type)
-        OPCODE_BRANCH     = 7'b1100011,         // Branch operations (B-type)
+        OPCODE_BRANCH     = 7'b1100011         // Branch operations (B-type)
         //TODO: Add more opcodes
         //OPCODE_JAL        = 7'b1101111,         // Jump and Link (J-type)
         //OPCODE_JALR       = 7'b1100111          // Jump and Link Register (I-type)
@@ -47,10 +47,8 @@ package riscv_pkg;
 
     // ALU functions Codes (funct7)
     typedef enum logic [6:0] {
-        F7_ADD  = 7'b0000000,  // ADD operation
-        F7_SUB  = 7'b0100000   // SUB operation
-        F7_SRL  = 7'b0000000,  // Shift Right Logical
-        F7_SRA  = 7'b0100000   // Shift Right Arithmetic
+    	F7_DEFAULT = 7'b0000000,   // Default funct7 value for ADD, SRL, etc.
+    	F7_SUB_SRA = 7'b0100000    // Alternate funct7 value for SUB, SRA
     } funct7_t;
 
     // Instruction encoding functions 
@@ -101,5 +99,5 @@ package riscv_pkg;
         input logic [20:0] imm
     );
         return {imm[20], imm[10:1], imm[11], imm[19:12], rd, opcode};
-    
-endpackage: riscv_pkg
+	endfunction 
+endpackage   
