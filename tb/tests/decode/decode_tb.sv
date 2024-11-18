@@ -27,6 +27,7 @@ module decode_tb;
 
     // Verification
     initial begin
+        automatic test_instruction_t test;
         $display("Starting Decode Stage Tests");
         
         // Initialize signals
@@ -37,7 +38,7 @@ module decode_tb;
         // Run through test vectors
         foreach(DecodeTests::test_vectors[i]) begin
             test_count++;
-            automatic test_instruction_t test = DecodeTests::test_vectors[i];
+            test = DecodeTests::test_vectors[i];
             
             // Drive test inputs
             @(posedge clk);
@@ -83,10 +84,10 @@ module decode_tb;
         $finish;
     end
 
-    // Optional: Dump waveforms
+    // Dump waveforms
     initial begin
-        $dumpfile("decode_tb.vcd");
-        $dumpvars(0, decode_tb);
+        //After simulation run vsim -view vsim.wlf
+        $wlfdumpvars(0, decode_tb); // Dump all variables
     end
 
 endmodule

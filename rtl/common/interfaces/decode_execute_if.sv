@@ -1,7 +1,7 @@
 import riscv_pkg::*; 
 
 interface decode_execute_if (
-    input logic clk;      // Shared pipeline clock signal
+    input logic clk      // Shared pipeline clock signal
 );
     // Decoded instruction data
     decoded_instr_t decoded_instr;   // Decoded instruction data
@@ -25,4 +25,4 @@ interface decode_execute_if (
     );
 
 
-endinterface: fetch_decode_if
+endinterface: decode_execute_if

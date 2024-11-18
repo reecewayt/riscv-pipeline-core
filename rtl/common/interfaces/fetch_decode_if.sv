@@ -1,7 +1,7 @@
 import riscv_pkg::*;
 
 interface fetch_decode_if (
-    intput logic clk       // Shared pipeline clock signal
+    input logic clk       // Shared pipeline clock signal
 );
     // Instruction data
     logic [DATA_WIDTH-1:0] instruction;   // Fetched instruction data

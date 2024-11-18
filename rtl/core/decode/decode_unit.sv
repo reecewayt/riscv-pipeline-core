@@ -104,21 +104,26 @@ module decode (
 
     // Ready signal is always high for non-pipelined version
     assign fd_if.ready = 1'b1;
-    
-    // Register file address assignment
-    assign rf_if.rs1_addr = decoded_instr.rs1;
-    assign rf_if.rs2_addr = decoded_instr.rs2;
 
     // Main decode logic
-    always_ff @(posedge fd_if.clk) begin
+    always_comb begin
+        // First decode the instruction
+        decoded_instr_t temp_decoded;
+        temp_decoded = decode_instruction(fd_if.instruction, fd_if.pc);
+        
+        // Drive register file addresses
+        rf_if.rs1_addr = temp_decoded.rs1;
+        rf_if.rs2_addr = temp_decoded.rs2;
+        
+        // Handle valid/ready logic and output assignment
         if (fd_if.valid && fd_if.ready) begin
-            decoded_instr <= decode_instruction(fd_if.instruction, fd_if.pc);
-            decoded_instr.reg_A <= rf_if.data_out_rs1;
-            decoded_instr.reg_B <= rf_if.data_out_rs2;
-            de_if.decoded_instr <= decoded_instr;
-            de_if.valid <= 1'b1;
+            temp_decoded.reg_A = rf_if.data_out_rs1;
+            temp_decoded.reg_B = rf_if.data_out_rs2;
+            de_if.decoded_instr = temp_decoded;
+            de_if.valid = 1'b1;
         end else begin
-            de_if.valid <= 1'b0;
+            de_if.decoded_instr = '0;
+            de_if.valid = 1'b0;
         end
     end
 
