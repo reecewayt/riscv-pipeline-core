@@ -7,10 +7,10 @@ interface memory_writeback_if(input logic clk);
     logic [DATA_WIDTH-1:0] mem_data;         // Data read from memory (LMD)
     logic [DATA_WIDTH-1:0] write_data;       // Data to write to memory
   logic [DATA_WIDTH-1:0] address;          // Address for memory access
-  logic [DATA_WIDTH-1:0] read_data;         //Data read from Data Memory module
-  logic [DATA_WIDTH-1:0] LMD;               //LMD connection
-  logic [DATA_WIDTH-1:0] npc;               //input to MUX that outputs to PC
-  logic [DATA_WIDTH-1:0] condpc;            //output of the MUX in MEM_ACC stage
+  logic [DATA_WIDTH-1:0] read_data;
+  logic [DATA_WIDTH-1:0] LMD;
+  logic [DATA_WIDTH-1:0] npc;
+  logic [DATA_WIDTH-1:0] condpc;
 
     // Control signals
     logic reg_write;                         // Control signal to enable register write
@@ -39,7 +39,8 @@ interface memory_writeback_if(input logic clk);
     modport writeback_stage (
         input  LMD,                     // Memory data read back for writeback
         output write_data,                   // Data to write if needed in writeback
-        input address                     // Address used in writeback
+        input address,                    // Address used in writeback
+        input mem_to_reg
     );
 
 endinterface
