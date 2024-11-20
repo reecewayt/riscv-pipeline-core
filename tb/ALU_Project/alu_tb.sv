@@ -322,6 +322,95 @@ module alu_tb;
         else 
             $display("Test 16 (SRAI) passed");
 
+//SPECIAL CASE
+        // Test 17: ADD Operation with Overflow
+        de_if.decoded_instr.opcode = OPCODE_REG_REG;
+        de_if.decoded_instr.funct3 = F3_ADD_SUB;
+        de_if.decoded_instr.funct7 = F7_ADD_SRL;
+        de_if.decoded_instr.reg_A = 32'h7FFFFFFF; // Maximum positive value
+        de_if.decoded_instr.reg_B = 32'h00000001; // Small positive value
+        de_if.valid = 1'b1;
+
+        #10;
+        de_if.valid = 1'b0;
+
+        // Check results
+        #10;
+        if (em_if.alu_result !== 32'h80000000) // Expected: overflow wraps around in 2's complement
+            $display("Test 17 (ADD with Overflow) failed: result = %h", em_if.alu_result);
+        else 
+            $display("Test 17 (ADD with Overflow) passed");
+
+        // Test 18: SUB Operation with Underflow
+        de_if.decoded_instr.opcode = OPCODE_REG_REG;
+        de_if.decoded_instr.funct3 = F3_ADD_SUB;
+        de_if.decoded_instr.funct7 = F7_SUB_SRA;
+        de_if.decoded_instr.reg_A = 32'h80000000; // Minimum negative value
+        de_if.decoded_instr.reg_B = 32'h00000001; // Small positive value
+        de_if.valid = 1'b1;
+
+        #10;
+        de_if.valid = 1'b0;
+
+        // Check results
+        #10;
+        if (em_if.alu_result !== 32'h7FFFFFFF) // Expected: underflow wraps around in 2's complement
+            $display("Test 18 (SUB with Underflow) failed: result = %h", em_if.alu_result);
+        else 
+            $display("Test 18 (SUB with Underflow) passed");
+
+        // Test 19: AND Operation with Zero
+        de_if.decoded_instr.opcode = OPCODE_REG_REG;
+        de_if.decoded_instr.funct3 = F3_AND;
+        de_if.decoded_instr.reg_A = 32'hFFFFFFFF; // All bits set
+        de_if.decoded_instr.reg_B = 32'h00000000; // All bits cleared
+        de_if.valid = 1'b1;
+
+        #10;
+        de_if.valid = 1'b0;
+
+        // Check results
+        #10;
+        if (em_if.alu_result !== 32'h00000000) 
+            $display("Test 19 (AND with Zero) failed: result = %h", em_if.alu_result);
+        else 
+            $display("Test 19 (AND with Zero) passed");
+
+        // Test 20: Load Effective Address Calculation
+        de_if.decoded_instr.opcode = OPCODE_LOAD;
+        de_if.decoded_instr.reg_A = 32'h00001000; // Base address
+        de_if.decoded_instr.imm_extended = 32'h00000010; // Offset
+        de_if.valid = 1'b1;
+
+        #10;
+        de_if.valid = 1'b0;
+
+        // Check results
+        #10;
+        if (em_if.alu_result !== 32'h00001010) 
+            $display("Test 20 (Load Effective Address) failed: result = %h", em_if.alu_result);
+        else 
+            $display("Test 20 (Load Effective Address) passed");
+
+        // Test 21: Store Effective Address Calculation
+        de_if.decoded_instr.opcode = OPCODE_STORE;
+        de_if.decoded_instr.reg_A = 32'h00002000; // Base address
+        de_if.decoded_instr.imm_extended = 32'hFFFFFFF0; // Negative offset (-16)
+        de_if.valid = 1'b1;
+
+        #10;
+        de_if.valid = 1'b0;
+
+        // Check results
+        #10;
+        if (em_if.alu_result !== 32'h00001FF0) 
+            $display("Test 21 (Store Effective Address) failed: result = %h", em_if.alu_result);
+        else 
+            $display("Test 21 (Store Effective Address) passed");
+
+
+
+
 //BRANCH
 
 
