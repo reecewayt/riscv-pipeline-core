@@ -1,122 +1,109 @@
 /*
-Project: Pipelined RiscV ALU module
+Project: RISC-V ALU module
 Author: Phil N
-Date: 10/27/2024
+Date: 11/20/2024
 ECE 571 Group Project
+V2.0
 
 This module is the ALU for the RISCV processor.
-
 */
 
 import riscv_pkg::*;
 
-// ALU for the RISC-V processor using decode-execute and execute-memory interfaces
 module alu #(
-    parameter N = 32                // Data width (e.g., 32-bit)
+    parameter N = 32  // Data width (e.g., 32-bit)
 ) (
     decode_execute_if.decode_out de_if,     // Decode to Execute interface
     execute_memory_if.execute_out em_if     // Execute to Memory interface
 );
 
     // Temporary result signals for different operations
-    logic [N-1:0] add_sub_result, shift_result, logic_result, compare_result;
+    logic [N-1:0] add_sub_result, shift_result, logic_result, compare_result, imm_result;
+    logic [N-1:0] imm_extended;  // Sign-extended immediate for I-type instructions
 
     // ALU Operation Handling
     always_comb begin
-        // Default result and zero flag
+        // Default result and flags
         em_if.alu_result = 32'd0;
         em_if.zero = 1'b0;
         em_if.rs2_data = de_if.decoded_instr.reg_B;  // Pass reg_B directly for memory stage use in store instructions
         em_if.opcode = de_if.decoded_instr.opcode;   // Pass opcode to the memory stage
 
-        // Only compute if data is valid and ready signals are asserted
+        // Immediate sign extension for I-type instructions
+        imm_extended = {{20{de_if.decoded_instr.imm[11]}}, de_if.decoded_instr.imm};
+
+        // Only compute if valid signal is asserted
         if (de_if.valid && em_if.ready) begin
             case (de_if.decoded_instr.opcode)
-                OPCODE_REG_IMM, OPCODE_REG_REG: begin
+                OPCODE_REG_REG: begin
                     case (de_if.decoded_instr.funct3)
                         F3_ADD_SUB: begin
-                            // Determine ADD/SUB based on funct7 value
-                            if (de_if.decoded_instr.funct7 == F7_SUB)
-                                add_sub_result = de_if.decoded_instr.reg_A - de_if.decoded_instr.reg_B;
-                            else
+                            // ADD or SUB based on funct7
+                            if (de_if.decoded_instr.funct7 == F7_ADD_SRL)
                                 add_sub_result = de_if.decoded_instr.reg_A + de_if.decoded_instr.reg_B;
+                            else if (de_if.decoded_instr.funct7 == F7_SUB_SRA)
+                                add_sub_result = de_if.decoded_instr.reg_A - de_if.decoded_instr.reg_B;
                             em_if.alu_result = add_sub_result;
                         end
-                        
-                        F3_SLL: begin
-                            // Shift Left Logical
-                            shift_result = de_if.decoded_instr.reg_A << de_if.decoded_instr.reg_B[4:0];
-                            em_if.alu_result = shift_result;
-                        end
-                        
-                        F3_SLT: begin
-                            // Set Less Than (signed comparison)
-                            compare_result = (de_if.decoded_instr.reg_A < de_if.decoded_instr.reg_B) ? 32'd1 : 32'd0;
-                            em_if.alu_result = compare_result;
-                        end
-                        
-                        F3_SLTU: begin
-                            // Set Less Than Unsigned
-                            compare_result = ($unsigned(de_if.decoded_instr.reg_A) < $unsigned(de_if.decoded_instr.reg_B)) ? 32'd1 : 32'd0;
-                            em_if.alu_result = compare_result;
-                        end
-
-                        F3_XOR: begin
-                            // XOR
-                            logic_result = de_if.decoded_instr.reg_A ^ de_if.decoded_instr.reg_B;
-                            em_if.alu_result = logic_result;
-                        end
-
                         F3_SRL_SRA: begin
-                            // Shift Right Logical or Arithmetic based on funct7
-                            if (de_if.decoded_instr.funct7 == F7_SRA)
-                                shift_result = de_if.decoded_instr.reg_A >>> de_if.decoded_instr.reg_B[4:0];
-                            else
+                            // SRL or SRA based on funct7
+                            if (de_if.decoded_instr.funct7 == F7_ADD_SRL)
                                 shift_result = de_if.decoded_instr.reg_A >> de_if.decoded_instr.reg_B[4:0];
+                            else if (de_if.decoded_instr.funct7 == F7_SUB_SRA)
+                                shift_result = de_if.decoded_instr.reg_A >>> de_if.decoded_instr.reg_B[4:0];
                             em_if.alu_result = shift_result;
                         end
-
-                        F3_OR: begin
-                            // OR
-                            logic_result = de_if.decoded_instr.reg_A | de_if.decoded_instr.reg_B;
-                            em_if.alu_result = logic_result;
-                        end
-
-                        F3_AND: begin
-                            // AND
-                            logic_result = de_if.decoded_instr.reg_A & de_if.decoded_instr.reg_B;
-                            em_if.alu_result = logic_result;
-                        end
-
-                        default: em_if.alu_result = 32'd0; // Default case for unsupported operations
+                        F3_OR: em_if.alu_result = de_if.decoded_instr.reg_A | de_if.decoded_instr.reg_B;
+                        F3_AND: em_if.alu_result = de_if.decoded_instr.reg_A & de_if.decoded_instr.reg_B;
+                        F3_XOR: em_if.alu_result = de_if.decoded_instr.reg_A ^ de_if.decoded_instr.reg_B;
+                        F3_SLT: em_if.alu_result = ($signed(de_if.decoded_instr.reg_A) < $signed(de_if.decoded_instr.reg_B)) ? 1 : 0;
+                        F3_SLTU: em_if.alu_result = (de_if.decoded_instr.reg_A < de_if.decoded_instr.reg_B) ? 1 : 0;
+                        default: em_if.alu_result = 32'd0; // Unsupported operation
                     endcase
                 end
-                
-                // Additional opcodes (optional) can be handled here
-                
-                default: em_if.alu_result = 32'd0; // Default case for unsupported opcodes
+
+                OPCODE_REG_IMM: begin
+                    case (de_if.decoded_instr.funct3)
+                        F3_ADD_SUB: em_if.alu_result = de_if.decoded_instr.reg_A + imm_extended; // ADDI
+                        F3_OR: em_if.alu_result = de_if.decoded_instr.reg_A | imm_extended;      // ORI
+                        F3_AND: em_if.alu_result = de_if.decoded_instr.reg_A & imm_extended;     // ANDI
+                        F3_XOR: em_if.alu_result = de_if.decoded_instr.reg_A ^ imm_extended;     // XORI
+                        F3_SLL: em_if.alu_result = de_if.decoded_instr.reg_A << imm_extended[4:0]; // SLLI
+                        F3_SRL_SRA: begin
+                            if (de_if.decoded_instr.funct7 == F7_ADD_SRL)
+                                em_if.alu_result = de_if.decoded_instr.reg_A >> imm_extended[4:0]; // SRLI
+                            else if (de_if.decoded_instr.funct7 == F7_SUB_SRA)
+                                em_if.alu_result = de_if.decoded_instr.reg_A >>> imm_extended[4:0]; // SRAI
+                        end
+                        default: em_if.alu_result = 32'd0; // Unsupported operation
+                    endcase
+                end
+
+                OPCODE_BRANCH: begin
+                    case (de_if.decoded_instr.funct3)
+                        F3_ADD_SUB: em_if.zero = (de_if.decoded_instr.reg_A == de_if.decoded_instr.reg_B); // BEQ
+                        F3_OR: em_if.zero = (de_if.decoded_instr.reg_A != de_if.decoded_instr.reg_B); // BNE
+                        F3_SLT: em_if.zero = ($signed(de_if.decoded_instr.reg_A) < $signed(de_if.decoded_instr.reg_B)); // BLT
+                        F3_SLTU: em_if.zero = (de_if.decoded_instr.reg_A < de_if.decoded_instr.reg_B); // BLTU
+                        default: em_if.zero = 1'b0; // Default to false for unsupported branches
+                    endcase
+                end
+
+                OPCODE_LOAD: em_if.alu_result = de_if.decoded_instr.reg_A + imm_extended; // Compute load address
+                OPCODE_STORE: em_if.alu_result = de_if.decoded_instr.reg_A + imm_extended; // Compute store address
+
+                OPCODE_JAL: em_if.alu_result = de_if.decoded_instr.pc + {{11{de_if.decoded_instr.imm[20]}}, de_if.decoded_instr.imm}; // JAL
+                OPCODE_JALR: em_if.alu_result = (de_if.decoded_instr.reg_A + imm_extended) & ~32'b1; // JALR
+
+                default: em_if.alu_result = 32'd0; // Unsupported opcode
             endcase
 
             // Set zero flag for conditional branching
             em_if.zero = (em_if.alu_result == 32'd0);
         end
 
-        // Pass valid signal from decode stage to memory stage via execute
+        // Pass valid signal to the next stage
         em_if.valid = de_if.valid;
     end
 
-endmodule: alu
-
-
-/* Missing operation list
-
-Immediate Arithmetic and Logical Operations: ADDI, ANDI, ORI, XORI, SLLI, SRLI, SRAI
-Load/Store Operations: LB, LH, LW, LBU, LHU, SB, SH, SW
-Branch Operations: BEQ, BNE, BLT, BGE, BLTU, BGEU
-Jump Operations: JAL, JALR
-Upper Immediate Operations: LUI, AUIPC
-
-*/
-
-
-
+endmodule
