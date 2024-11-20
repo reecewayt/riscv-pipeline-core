@@ -163,5 +163,5 @@ package riscv_pkg;
         input logic [20:0] imm
     );
         return {imm[20], imm[10:1], imm[11], imm[19:12], rd, opcode};
-	endfunction 
-endpackage   
+    endfunction 
+endpackage: riscv_pkg
