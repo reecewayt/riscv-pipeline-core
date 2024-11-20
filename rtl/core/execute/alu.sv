@@ -67,7 +67,12 @@ module alu #(
 				//REG_IMM
                 OPCODE_REG_IMM: begin
                     case (de_if.decoded_instr.funct3)
-                        F3_ADD_SUB: em_if.alu_result = de_if.decoded_instr.reg_A + de_if.decoded_instr.imm_extended; // ADDI
+                            F3_ADD_SUB: begin
+								if (de_if.decoded_instr.funct7 == F7_ADD_SRL) 
+										em_if.alu_result = de_if.decoded_instr.reg_A + de_if.decoded_instr.imm_extended; // ADDI
+								else if (de_if.decoded_instr.funct7 == F7_SUB_SRA) 
+										em_if.alu_result = de_if.decoded_instr.reg_A - de_if.decoded_instr.imm_extended; // SUBI
+							end
                         F3_OR: em_if.alu_result = de_if.decoded_instr.reg_A | de_if.decoded_instr.imm_extended;      // ORI
                         F3_AND: em_if.alu_result = de_if.decoded_instr.reg_A & de_if.decoded_instr.imm_extended;     // ANDI
                         F3_XOR: em_if.alu_result = de_if.decoded_instr.reg_A ^ de_if.decoded_instr.imm_extended;     // XORI
