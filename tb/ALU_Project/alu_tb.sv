@@ -201,6 +201,7 @@ module alu_tb;
 		// Test 10: ADD IMMEDIATE
         de_if.decoded_instr.opcode = OPCODE_REG_IMM;
         de_if.decoded_instr.funct3 = F3_ADD_SUB;
+		de_if.decoded_instr.funct7 = F7_ADD_SRL;
         de_if.decoded_instr.reg_A = 32'h0000_0000; //
         de_if.decoded_instr.imm_extended = 32'h0000_0005; //
         de_if.valid = 1'b1;
@@ -408,6 +409,24 @@ module alu_tb;
         else 
             $display("Test 21 (Store Effective Address) passed");
 
+//Missed Tests from above
+		// Test 22: SUB IMMEDIATE
+        de_if.decoded_instr.opcode = OPCODE_REG_IMM;
+        de_if.decoded_instr.funct3 = F3_ADD_SUB;
+		de_if.decoded_instr.funct7 = F7_SUB_SRA;
+        de_if.decoded_instr.reg_A = 32'h0000_0005; //
+        de_if.decoded_instr.imm_extended = 32'h0000_0002; //
+        de_if.valid = 1'b1;
+
+        #10;
+        de_if.valid = 1'b0;
+
+        // Check results
+        #10;
+        if (em_if.alu_result !== 32'h0000_0003) 
+            $display("Test 22 (SUBI) failed: result = %h", em_if.alu_result);
+        else 
+            $display("Test 22 (SUBI) passed");
 
 
 
