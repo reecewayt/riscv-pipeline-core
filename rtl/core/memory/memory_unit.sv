@@ -1,4 +1,4 @@
-module memory_access(input logic clk,rst_n,memory_writeback_if.memory_stage mem_if);
+module memory_access(input logic clk,rst_n,memory_writeback_if.memory_stage mem_if,memory_fetch_if.memory_stage fetch_if);
   
   
   
@@ -9,10 +9,11 @@ module memory_access(input logic clk,rst_n,memory_writeback_if.memory_stage mem_
   always_ff@(posedge clk or posedge rst_n) begin
     if(!rst_n)
       mem_if.LMD<=32'hFFFFFFFF;
-    else if(mem_if.RE) //Load Instruction
+    else if(mem_if.RE)
       mem_if.LMD<=mem_if.read_data;
   end
   
   assign mem_if.condpc=mem_if.cond?mem_if.address:mem_if.npc;
+ 
   
 endmodule
