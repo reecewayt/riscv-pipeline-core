@@ -35,6 +35,7 @@ module alu #(
         // Only compute if valid signal is asserted
         if (de_if.valid && em_if.ready) begin
             case (de_if.decoded_instr.opcode)
+
                 OPCODE_REG_REG: begin
                     case (de_if.decoded_instr.funct3)
                         F3_ADD_SUB: begin
@@ -62,22 +63,31 @@ module alu #(
                     endcase
                 end
 
+
+				//REG_IMM
                 OPCODE_REG_IMM: begin
                     case (de_if.decoded_instr.funct3)
-                        F3_ADD_SUB: em_if.alu_result = de_if.decoded_instr.reg_A + imm_extended; // ADDI
-                        F3_OR: em_if.alu_result = de_if.decoded_instr.reg_A | imm_extended;      // ORI
-                        F3_AND: em_if.alu_result = de_if.decoded_instr.reg_A & imm_extended;     // ANDI
-                        F3_XOR: em_if.alu_result = de_if.decoded_instr.reg_A ^ imm_extended;     // XORI
-                        F3_SLL: em_if.alu_result = de_if.decoded_instr.reg_A << imm_extended[4:0]; // SLLI
+                            F3_ADD_SUB: begin
+								if (de_if.decoded_instr.funct7 == F7_ADD_SRL) 
+										em_if.alu_result = de_if.decoded_instr.reg_A + de_if.decoded_instr.imm_extended; // ADDI
+								else if (de_if.decoded_instr.funct7 == F7_SUB_SRA) 
+										em_if.alu_result = de_if.decoded_instr.reg_A - de_if.decoded_instr.imm_extended; // SUBI
+							end
+                        F3_OR: em_if.alu_result = de_if.decoded_instr.reg_A | de_if.decoded_instr.imm_extended;      // ORI
+                        F3_AND: em_if.alu_result = de_if.decoded_instr.reg_A & de_if.decoded_instr.imm_extended;     // ANDI
+                        F3_XOR: em_if.alu_result = de_if.decoded_instr.reg_A ^ de_if.decoded_instr.imm_extended;     // XORI
+                        F3_SLL: em_if.alu_result = de_if.decoded_instr.reg_A << de_if.decoded_instr.imm_extended[4:0]; // SLLI
                         F3_SRL_SRA: begin
                             if (de_if.decoded_instr.funct7 == F7_ADD_SRL)
-                                em_if.alu_result = de_if.decoded_instr.reg_A >> imm_extended[4:0]; // SRLI
+                                em_if.alu_result = de_if.decoded_instr.reg_A >> de_if.decoded_instr.imm_extended[4:0]; // SRLI
                             else if (de_if.decoded_instr.funct7 == F7_SUB_SRA)
-                                em_if.alu_result = de_if.decoded_instr.reg_A >>> imm_extended[4:0]; // SRAI
+                                em_if.alu_result = de_if.decoded_instr.reg_A >>> de_if.decoded_instr.imm_extended[4:0]; // SRAI
+
                         end
                         default: em_if.alu_result = 32'd0; // Unsupported operation
                     endcase
                 end
+
 
                 OPCODE_BRANCH: begin
                     case (de_if.decoded_instr.funct3)
@@ -89,11 +99,13 @@ module alu #(
                     endcase
                 end
 
-                OPCODE_LOAD: em_if.alu_result = de_if.decoded_instr.reg_A + imm_extended; // Compute load address
-                OPCODE_STORE: em_if.alu_result = de_if.decoded_instr.reg_A + imm_extended; // Compute store address
+
+                OPCODE_LOAD: em_if.alu_result = de_if.decoded_instr.reg_A + de_if.decoded_instr.imm_extended; // Compute load address
+                OPCODE_STORE: em_if.alu_result = de_if.decoded_instr.reg_A + de_if.decoded_instr.imm_extended; // Compute store address
 
                 OPCODE_JAL: em_if.alu_result = de_if.decoded_instr.pc + {{11{de_if.decoded_instr.imm[20]}}, de_if.decoded_instr.imm}; // JAL
-                OPCODE_JALR: em_if.alu_result = (de_if.decoded_instr.reg_A + imm_extended) & ~32'b1; // JALR
+                OPCODE_JALR: em_if.alu_result = (de_if.decoded_instr.reg_A + de_if.decoded_instr.imm_extended) & ~32'b1; // JALR
+
 
                 default: em_if.alu_result = 32'd0; // Unsupported opcode
             endcase
