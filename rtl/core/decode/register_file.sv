@@ -1,7 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////
 // File Name:     register_file.sv
-// Engineer:      Your Name
-// Course:        Your Course
 // Description:   RISC-V Register File implementation providing:
 //                - 32 general-purpose registers (x0-x31)
 //                - Register x0 hardwired to zero

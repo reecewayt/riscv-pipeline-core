@@ -1,5 +1,5 @@
 # riscv-pipeline-core
-Implementation of a simple unpipelined RISC V (rv32i) core
+Implementation of a simple unpipelined RISC V (rv32i) core for ECE 571 (Intro to SV) Final Project
 ![Simple](docs/images/simple-unpipelined-riscv.jpg)
 
 # Contributing to the project
