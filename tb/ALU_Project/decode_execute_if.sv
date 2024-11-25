@@ -4,7 +4,7 @@ interface decode_execute_if (
     input logic clk      // Shared pipeline clock signal
 );
     // Decoded instruction data
-    decoded_instr_t decoded_instr;   // Decoded instruction data
+    decoded_instr_t decoded_instr;  // Use struct type directly
 
     // Control Signals
     logic valid;                    // Indicates valid data in decode stage
@@ -24,5 +24,5 @@ interface decode_execute_if (
         output ready
     );
 
-
 endinterface: decode_execute_if
+
