@@ -1,0 +1,61 @@
+# Reading pref.tcl
+# //  Questa Sim-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading project RiscVCPU
+# Compile of alu.sv was successful.
+# Compile of alu_tb.sv was successful.
+# Compile of decode_execute_if.sv was successful.
+# Compile of execute_memory_if.sv was successful.
+# Compile of riscv_pkg.sv was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.alu_tb
+# vsim -gui work.alu_tb 
+# Start time: 13:11:31 on Nov 25,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.riscv_pkg(fast)
+# Loading work.alu_sv_unit(fast)
+# Loading work.execute_memory_if_sv_unit(fast)
+# Loading work.decode_execute_if_sv_unit(fast)
+# Loading work.alu_tb_sv_unit(fast)
+# Loading work.alu_tb(fast)
+run
+# Test 1 (ADD) passed
+# Test 2 (SUB) passed
+# Test 3 (OR) passed
+# Test 4 (AND) passed
+# Test 5 (XOR) passed
+# Test 6 (SLT signed) passed
+# Test 7 (SLT signed) passed
+# Test 8 (SLTU unsigned) passed
+# Test 9 (SLTU unsigned) passed
+# Test 10 (ADDI) passed
+# Test 11 (ORI) passed
+# Test 12 (ANDI) passed
+# Test 13 (XORI) passed
+# Test 14 (SLLI) passed
+# Test 15 (SRLI) passed
+# Test 16 (SRAI) failed: result = 3ffffffc
+# Test 17 (ADD with Overflow) passed
+# Test 18 (SUB with Underflow) passed
+# Test 19 (AND with Zero) passed
+# Test 20 (Load Effective Address) passed
+# Test 21 (Store Effective Address) passed
+# Test 22 (SUBI) passed
+# ** Note: $stop    : /u/pnevins/ECE571-F24/RiscVCPU/alu_tb.sv(526)
+#    Time: 955 ns  Iteration: 0  Instance: /alu_tb
+# Break at /u/pnevins/ECE571-F24/RiscVCPU/alu_tb.sv line 526
+# End time: 13:11:56 on Nov 25,2024, Elapsed time: 0:00:25
+# Errors: 0, Warnings: 2
