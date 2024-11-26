@@ -46,7 +46,6 @@ module alu_tb;
         de_if.decoded_instr.funct7 = F7_ADD_SRL; // Use F7_ADD_SRL for ADD
         de_if.decoded_instr.reg_A = 32'h0000_0005;
         de_if.decoded_instr.reg_B = 32'h0000_0003;
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -69,7 +68,6 @@ module alu_tb;
         de_if.decoded_instr.funct7 = F7_SUB_SRA; // Use F7_SUB_SRA for SUB
         de_if.decoded_instr.reg_A = 32'h0000_0008;
         de_if.decoded_instr.reg_B = 32'h0000_0003;
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -78,7 +76,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -93,7 +90,6 @@ module alu_tb;
         de_if.decoded_instr.funct7 = F7_ADD_SRL; // funct7 is irrelevant for OR
         de_if.decoded_instr.reg_A = 32'h0000_000A;
         de_if.decoded_instr.reg_B = 32'h0000_0005;
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -102,7 +98,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -116,7 +111,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_AND;    // Use F3_AND for AND
         de_if.decoded_instr.reg_A = 32'h0000_000A;
         de_if.decoded_instr.reg_B = 32'h0000_0005;
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -125,7 +119,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -139,7 +132,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_XOR;    // Use F3_XOR for XOR
         de_if.decoded_instr.reg_A = 32'h0000_000A;
         de_if.decoded_instr.reg_B = 32'h0000_0005;
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -148,7 +140,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -162,7 +153,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_SLT;
         de_if.decoded_instr.reg_A = 32'hFFFF_FFF5; // -11 (signed)
         de_if.decoded_instr.reg_B = 32'h0000_0005; // 5 (signed)
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -171,7 +161,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -185,7 +174,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_SLT;
         de_if.decoded_instr.reg_A = 32'h0000_0005; // 5 (signed)
         de_if.decoded_instr.reg_B = 32'hFFFF_FFF5; // -11 (signed)
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -194,7 +182,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -208,7 +195,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_SLTU;
         de_if.decoded_instr.reg_A = 32'h0000_0003; // 3 (unsigned)
         de_if.decoded_instr.reg_B = 32'h0000_0005; // 5 (unsigned)
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -217,7 +203,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -231,7 +216,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_SLTU;
         de_if.decoded_instr.reg_A = 32'hFFFF_FFFF; // 4,294,967,295 (unsigned max)
         de_if.decoded_instr.reg_B = 32'h0000_0001; // 1 (unsigned)
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -240,7 +224,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -257,7 +240,6 @@ module alu_tb;
 		de_if.decoded_instr.funct7 = F7_ADD_SRL;
         de_if.decoded_instr.reg_A = 32'h0000_0000; //
         de_if.decoded_instr.imm_extended = 32'h0000_0005; //
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -266,7 +248,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -280,7 +261,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_OR;
         de_if.decoded_instr.reg_A = 32'h0000_1010; //
         de_if.decoded_instr.imm_extended = 32'h0000_0101; //
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -289,7 +269,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -303,7 +282,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_AND;
         de_if.decoded_instr.reg_A = 32'h0000_1010; //
         de_if.decoded_instr.imm_extended = 32'h0000_1000; //
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -312,7 +290,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -326,7 +303,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_XOR;
         de_if.decoded_instr.reg_A = 32'h0000_1010; //
         de_if.decoded_instr.imm_extended = 32'h0000_0110; //
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -335,7 +311,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -350,7 +325,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_SLL; // SLLI operation
         de_if.decoded_instr.reg_A = 32'h0000_1111; // Source value
         de_if.decoded_instr.imm_extended = 32'h0000_0002; // Shift amount (2 bits)
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -359,7 +333,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -374,7 +347,6 @@ module alu_tb;
         de_if.decoded_instr.funct7 = F7_ADD_SRL;		
         de_if.decoded_instr.reg_A = 32'h0000_1111; //
         de_if.decoded_instr.imm_extended = 32'h0000_0002; //
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -383,7 +355,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -399,7 +370,6 @@ module alu_tb;
         de_if.decoded_instr.funct7 = F7_SUB_SRA; // Indicates SRA (arithmetic shift)
         de_if.decoded_instr.reg_A = 32'hFFFF_FFF0; // Negative number (-16 in 2's complement)
         de_if.decoded_instr.imm_extended = 32'h0000_0002; // Shift by 2 bits
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -408,7 +378,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -425,7 +394,6 @@ module alu_tb;
         de_if.decoded_instr.funct7 = F7_ADD_SRL;
         de_if.decoded_instr.reg_A = 32'h7FFFFFFF; // Maximum positive value
         de_if.decoded_instr.reg_B = 32'h00000001; // Small positive value
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -434,7 +402,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -449,7 +416,6 @@ module alu_tb;
         de_if.decoded_instr.funct7 = F7_SUB_SRA;
         de_if.decoded_instr.reg_A = 32'h80000000; // Minimum negative value
         de_if.decoded_instr.reg_B = 32'h00000001; // Small positive value
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -458,7 +424,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -472,7 +437,6 @@ module alu_tb;
         de_if.decoded_instr.funct3 = F3_AND;
         de_if.decoded_instr.reg_A = 32'hFFFFFFFF; // All bits set
         de_if.decoded_instr.reg_B = 32'h00000000; // All bits cleared
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -481,7 +445,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -494,7 +457,6 @@ module alu_tb;
         de_if.decoded_instr.opcode = OPCODE_LOAD;
         de_if.decoded_instr.reg_A = 32'h00001000; // Base address
         de_if.decoded_instr.imm_extended = 32'h00000010; // Offset
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -503,7 +465,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -516,7 +477,6 @@ module alu_tb;
         de_if.decoded_instr.opcode = OPCODE_STORE;
         de_if.decoded_instr.reg_A = 32'h00002000; // Base address
         de_if.decoded_instr.imm_extended = 32'hFFFFFFF0; // Negative offset (-16)
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -525,7 +485,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
@@ -541,7 +500,6 @@ module alu_tb;
 		de_if.decoded_instr.funct7 = F7_SUB_SRA;
         de_if.decoded_instr.reg_A = 32'h0000_0005; //
         de_if.decoded_instr.imm_extended = 32'h0000_0002; //
-
     // Assert valid and wait for computation
     @(posedge clk);
     de_if.valid = 1'b1;
@@ -550,7 +508,6 @@ module alu_tb;
 
     // Wait for result propagation
     #20;
-
 
         // Check results
         #10;
