@@ -39,6 +39,9 @@ TB_COMMON_FILES := $(shell find $(TB_DIR)/common -type f -name "*.sv" 2>/dev/nul
 # Top-level testbench file
 TOP_TB := $(TB_DIR)/top/tb_top.sv
 
+# Unit tests or module level testbenches
+UNIT_TESTS := fetch decode alu register_file memory_access
+
 # Compilation flags
 VLOG_FLAGS := -sv \
               +incdir+$(COMMON_DIR)/packages \
@@ -114,6 +117,28 @@ regression: compile
 	done
 	@printf "$(GREEN)All regression tests executed, check output for errors$(NC)\n"
 
+unit_test: 
+	@if [ -z "$(TEST)" ]; then \
+		printf "$(RED)Error: TEST parameter is required$(NC)\n"; \
+		printf "$(BLUE)Usage: make unit_test TEST=<test_name>$(NC)\n"; \
+		printf "$(BLUE)Available tests: $(UNIT_TESTS)$(NC)\n"; \
+		exit 1; \
+	fi
+	@if ! echo "$(UNIT_TESTS)" | grep -w -q "$(TEST)"; then \
+		printf "$(RED)Error: Invalid test name '$(TEST)'$(NC)\n"; \
+		printf "$(BLUE)Available tests: $(UNIT_TESTS)$(NC)\n"; \
+		exit 1; \
+	fi
+	@printf "$(BLUE)Running $(TEST) unit test...$(NC)\n"
+	@case "$(TEST)" in \
+		"fetch") $(MAKE) -C $(TB_DIR)/tests/fetch_tb test ;; \
+		"decode") $(MAKE) -C $(TB_DIR)/tests/decode test ;; \
+		"alu") $(MAKE) -C $(TB_DIR)/tests/alu_stage test ;; \
+		"register_file") $(MAKE) -C $(TB_DIR)/tests/register_file test ;; \
+		"memory_access") $(MAKE) -C $(TB_DIR)/tests/Memory_Access_stage test ;; \
+		"writeback") $(MAKE) -C $(TB_DIR)/tests/Writeback_stage test ;; \
+	esac
+
 create_work:
 	@if [ ! -d "work" ]; then \
 		printf "$(BLUE)Creating work library...$(NC)\n"; \
@@ -139,6 +164,8 @@ help:
 	@printf "  $(GREEN)compile$(NC)    - Compile the RISCV core and top-level testbench\n"
 	@printf "  $(GREEN)simulate$(NC)   - Run the top-level simulation\n"
 	@printf "  $(GREEN)regression$(NC) - Run all unit tests\n"
+	@printf "  $(GREEN)unit_test$(NC)  - Run a specific unit test (Usage: make unit_test TEST=<test_name>)\n"
+	@printf "                Available tests: $(UNIT_TESTS)\n"
 	@printf "  $(GREEN)clean$(NC)      - Clean all build artifacts\n"
 	@printf "  $(GREEN)help$(NC)       - Show this help message\n"
 	@printf "\n"
