@@ -144,12 +144,9 @@ help:
 	@printf "  $(BLUE)WAVES=1$(NC)   - Enable waveform logging\n"
 	@printf "\n"
 	@printf "Examples:\n"
-	@printf "  make simulate              # Run top-level simulation in command-line mode\n"
-	@printf "  make simulate GUI=1 WAVES=1 # Run with GUI and waveforms\n"
-	@printf "  make regression            # Run all unit tests\n"
+	@printf "  make simulate                # Run top-level simulation in command-line mode\n"
+	@printf "  make simulate GUI=1 WAVES=1  # Run with GUI and waveforms\n"
+	@printf "  make regression              # Run all unit tests\n"
 	@printf "\n"
-	@printf "For running individual unit tests, cd into the specific test directory\n"
-	@printf "and use its Makefile. Example:\n"
-	@printf "  cd tb/tests/decode && make test GUI=1 WAVES=1\n"
 
 .PHONY: compile compile_core compile_tb simulate regression clean help create_work
