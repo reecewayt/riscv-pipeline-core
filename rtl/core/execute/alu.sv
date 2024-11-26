@@ -19,6 +19,7 @@ module alu #(
 
 
 
+
     // Temporary result signals for different operations
     logic [N-1:0] add_sub_result, shift_result, logic_result, compare_result, imm_result;
     logic [N-1:0] imm_extended;  // Sign-extended immediate for I-type instructions
@@ -27,13 +28,12 @@ module alu #(
     // ALU Operation Handling
     always_comb begin
         // Default result and flags
-
         // Initialize signals
         add_sub_result = 32'd0;
         shift_result = 32'd0;
         logic_result = 32'd0;
-	compare_result = 32'd0;
-	imm_result = 32'd0;
+	      compare_result = 32'd0;
+	      imm_result = 32'd0;
         em_if.zero = 1'b0;
         em_if.rs2_data = de_if.decoded_instr.reg_B;  // Pass reg_B directly for memory stage use in store instructions
         em_if.opcode = de_if.decoded_instr.opcode;   // Pass opcode to the memory stage
@@ -44,7 +44,7 @@ module alu #(
         // Only compute if valid signal is asserted
         if (de_if.valid && em_if.ready) begin
             case (de_if.decoded_instr.opcode)
-			
+
 				//REG_REG
                 OPCODE_REG_REG: begin
                     case (de_if.decoded_instr.funct3)
@@ -92,9 +92,11 @@ module alu #(
                             else if (de_if.decoded_instr.funct7 == F7_SUB_SRA)
                                 em_if.alu_result = de_if.decoded_instr.reg_A >>> de_if.decoded_instr.imm_extended[4:0]; // SRAI
                         end
+                      
                         default: em_if.alu_result = 32'd0; // Unsupported operation
                     endcase
                 end
+
 
 				//BRANCH
                 OPCODE_BRANCH: begin
@@ -107,12 +109,15 @@ module alu #(
                     endcase
                 end
 
+        //LOAD/STORE
                 OPCODE_LOAD: em_if.alu_result = de_if.decoded_instr.reg_A + de_if.decoded_instr.imm_extended; // Compute load address
                 OPCODE_STORE: em_if.alu_result = de_if.decoded_instr.reg_A + de_if.decoded_instr.imm_extended; // Compute store address
 
+       //JUMP
                 OPCODE_JAL: em_if.alu_result = de_if.decoded_instr.pc + {{11{de_if.decoded_instr.imm[20]}}, de_if.decoded_instr.imm}; // JAL
                 OPCODE_JALR: em_if.alu_result = (de_if.decoded_instr.reg_A + de_if.decoded_instr.imm_extended) & ~32'b1; // JALR
 
+       //DEFAULT
                 default: em_if.alu_result = 32'd0; // Unsupported opcode
             endcase
 
@@ -125,4 +130,3 @@ module alu #(
     end
 
 endmodule
-

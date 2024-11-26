@@ -1,0 +1,42 @@
+vsim -voptargs=+acc work.memory_access_tb
+# vsim -voptargs="+acc" work.memory_access_tb 
+# Start time: 17:33:02 on Nov 22,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.memory_access_tb(fast)
+# Loading work.riscv_pkg(fast)
+# Loading work.memory_writeback_if_sv_unit(fast)
+# Loading work.memory_writeback_if(fast__1)
+# Loading work.memory_fetch_if(fast__1)
+# Loading work.execute_memory_if_sv_unit(fast)
+# Loading work.execute_memory_if(fast__1)
+# Loading work.memory_access(fast)
+# Loading work.data_memory(fast)
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'mem_if'.  Expected 1, found 0.
+#    Time: 0 ns  Iteration: 0  Instance: /memory_access_tb/mem_if File: /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Memory_Access_stage/Memory_access_tb.sv Line: 25
+# ** Warning: (vsim-3722) /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Memory_Access_stage/Memory_access_tb.sv(25): [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'fetch_if'.  Expected 1, found 0.
+#    Time: 0 ns  Iteration: 0  Instance: /memory_access_tb/fetch_if File: /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Memory_Access_stage/Memory_access_tb.sv Line: 26
+# ** Warning: (vsim-3722) /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Memory_Access_stage/Memory_access_tb.sv(26): [TFMPC] - Missing connection for port 'clk'.
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'e_m_if'.  Expected 1, found 0.
+#    Time: 0 ns  Iteration: 0  Instance: /memory_access_tb/e_m_if File: /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Memory_Access_stage/Memory_access_tb.sv Line: 27
+# ** Warning: (vsim-3722) /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Memory_Access_stage/Memory_access_tb.sv(27): [TFMPC] - Missing connection for port 'clk'.
+run -all
+# Test 1: Reset Check
+# Time=50 rst_n=0 WE=0 RE=0 Addr=00000000 Data=00000000 ReadData=00000000 LMD=00000000 condpc=00000000
+# Test 2: Memory Write
+# Time=110 rst_n=1 WE=1 RE=0 Addr=00000004 Data=abcd1234 ReadData=00000000 LMD=00000000 condpc=00000000
+# Test 3: Memory Read
+# Time=170 rst_n=1 WE=0 RE=1 Addr=00000004 Data=abcd1234 ReadData=abcd1234 LMD=abcd1234 condpc=00000000
+# Test 4: Write Different Location
+# Time=220 rst_n=1 WE=1 RE=0 Addr=00000008 Data=87654321 ReadData=00000000 LMD=abcd1234 condpc=00000000
+# Test 5: Read Different Location
+# Time=270 rst_n=1 WE=0 RE=1 Addr=00000008 Data=87654321 ReadData=87654321 LMD=87654321 condpc=00000000
+# Test 6: Conditional PC Test
+# Time=320 rst_n=1 WE=0 RE=1 Addr=00000100 Data=87654321 ReadData=00000000 LMD=00000000 condpc=00000100
+# Time=370 rst_n=1 WE=0 RE=1 Addr=00000100 Data=87654321 ReadData=00000000 LMD=00000000 condpc=00000200
+# Tests completed
+# ** Note: $finish    : /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Memory_Access_stage/Memory_access_tb.sv(113)
+#    Time: 480 ns  Iteration: 0  Instance: /memory_access_tb
+# 1
+# Break in Module memory_access_tb at /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Memory_Access_stage/Memory_access_tb.sv line 113

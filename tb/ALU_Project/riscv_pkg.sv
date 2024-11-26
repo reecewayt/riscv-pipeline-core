@@ -112,7 +112,7 @@ package riscv_pkg;
         logic [XLEN-1:0] reg_A;     // Regs[rs1]
         logic [XLEN-1:0] reg_B;     // Regs[rs2]
         logic [11:0] imm;           // Immediate value
-	logic [31:0] imm_extended;     // Sign-extended immediate
+	      logic [31:0] imm_extended;     // Sign-extended immediate
     } decoded_instr_t;
 
 
