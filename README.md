@@ -5,13 +5,32 @@
 
 ![Simple](docs/images/riscv-pipeline-design.jpg)
 
-# Cloning the project
+### Cloning the project
 ```bash
 git clone <git@github.com:reecewayt/riscv-pipeline-core.git>
 ```
   
 # 🚀 RISCV Pipeline Core Build System
+- Please note that our build system uses `Makefile` and also has the following dependencies
+## 📋 Dependencies
 
+| Tool | Description | Availability |
+|------|-------------|--------------|
+| `QuestaSim` | RTL Simulation Tool Suite | Licensed Product |
+| `vsim` | Simulator | Part of QuestaSim |
+| `vlog` | Verilog/SystemVerilog Compiler | Part of QuestaSim |
+| `vlib` | Library Management Tool | Part of QuestaSim |
+
+> ⚠️ **Important**: This build system requires access to Siemens QuestaSim/ModelSim tools. These are licensed products typically available through academic institutions or commercial licenses.
+
+### 🔍 Verifying Tool Installation
+```bash
+# Check if QuestaSim tools are available
+which vsim vlog vlib
+
+# Check QuestaSim version
+vsim -version
+```
 ## 💡Running and simulating the processor core
 ```bash
 # Run from root directory
