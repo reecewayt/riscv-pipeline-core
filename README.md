@@ -43,6 +43,7 @@ make simulate
 | `compile` | Compile the RISCV core and top-level testbench |
 | `simulate` | Run the top-level simulation |
 | `regression` | Run all unit tests |
+| `unit-test` | Run a single unit test |
 | `clean` | Clean all build artifacts |
 | `help` | Show this help message |
 
@@ -64,6 +65,12 @@ make simulate GUI=1 WAVES=1
 
 # Run all unit tests
 make regression
+
+# Run a targetted unit test
+make unit-test TEST=decode
+
+# Run helper function
+make help
 ```
 ## 🔍 Default Values
 
