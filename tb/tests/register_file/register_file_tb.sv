@@ -29,6 +29,7 @@ module register_file_tb;
         // Run tests
         test.run_basic_test();
         #100;
+        //rf_if.rst_n = 0;
         test.run_concurrent_test();
         #100;
         // Report results
