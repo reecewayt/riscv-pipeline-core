@@ -2,6 +2,9 @@
 # RISCV Pipeline Core Top-Level Makefile
 # Author: Reece Wayt
 # Date: Fall 2024
+# Sources: 
+#   - Anthropic's Claude AI Assistant (claude.ai)
+#   - Used for Makefile structure and pretty printing color codes (https://claude.ai)
 #####################################################################################
 
 # Force bash as shell and enable interpretation of backslash escapes
@@ -101,15 +104,15 @@ regression: compile
 		if [ -f "$$d/Makefile" ]; then \
 			printf "$(BLUE)Running tests in $$d...$(NC)\n"; \
 			if $(MAKE) -C $$d test; then \
-				printf "$(GREEN)$$d tests passed!$(NC)\n"; \
+				printf "$(GREEN)$$d execution complete$(NC)\n"; \
 			else \
-				printf "$(RED)$$d tests failed!$(NC)\n"; \
+				printf "$(RED)$$d execution failed$(NC)\n"; \
 				exit 1; \
 			fi; \
 			printf "$(YELLOW)=====================================\n$(NC)"; \
 		fi \
 	done
-	@printf "$(GREEN)All regression tests passed!$(NC)\n"
+	@printf "$(GREEN)All regression tests executed, check output for errors$(NC)\n"
 
 create_work:
 	@if [ ! -d "work" ]; then \
