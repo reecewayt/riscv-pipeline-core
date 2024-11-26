@@ -7,7 +7,7 @@
 
 ### Cloning the project
 ```bash
-git clone <git@github.com:reecewayt/riscv-pipeline-core.git>
+git clone https://github.com/reecewayt/riscv-pipeline-core.git
 ```
   
 # 🚀 RISCV Pipeline Core Build System
