@@ -1,3 +1,5 @@
+import riscv_pkg::*;
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Module: Data Cache
 // 
@@ -29,10 +31,11 @@ module data_memory(
         end
         else if (mem_if.WE) begin
             // Use ALU result as memory address
-          D_M[e_m_if.alu_result[11:2]] <= mem_if.REG_B;
+          D_M[e_m_if.alu_result] <= mem_if.REG_B;
         end
     end
     
     // Assign read_data based on RE (Read Enable)
-    assign mem_if.read_data = mem_if.RE ? D_M[e_m_if.alu_result[11:2]] : 32'd0;
+  assign mem_if.read_data = mem_if.RE ? D_M[e_m_if.alu_result] : mem_if.LMD;
 endmodule
+
