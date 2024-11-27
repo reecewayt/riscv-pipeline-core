@@ -37,9 +37,10 @@ module alu #(
         em_if.zero = 1'b0;
         em_if.rs2_data = de_if.decoded_instr.reg_B;  // Pass reg_B directly for memory stage use in store instructions
         em_if.opcode = de_if.decoded_instr.opcode;   // Pass opcode to the memory stage
+        em_if.decoded_instr.rd=de_if.decoded_instr.rd;//Pass destination register to Memory access Stage to be passed to Write_back Stage
 
         // Immediate sign extension for I-type instructions
-        imm_extended = {{20{de_if.decoded_instr.imm[11]}}, de_if.decoded_instr.imm};
+        de_if.decoded_instr.imm_extended = {{20{de_if.decoded_instr.imm[11]}}, de_if.decoded_instr.imm};
 
         // Only compute if valid signal is asserted
         if (de_if.valid && em_if.ready) begin
@@ -129,4 +130,5 @@ module alu #(
         em_if.valid = de_if.valid;
     end
 
+ 
 endmodule
