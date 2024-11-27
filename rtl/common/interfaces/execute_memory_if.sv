@@ -8,6 +8,7 @@ interface execute_memory_if (
     logic [DATA_WIDTH-1:0] rs2_data;    // Data from register file (needed for store instructions)
     logic zero;                         // Zero flag for branch decisions
     opcode_t opcode;                    // Opcode to determine the type of operation in memory stage
+    decoded_instr_t decoded_instr;
 
     // Control Signals
     logic valid;                        // Indicates valid data from the execute stage
@@ -21,7 +22,8 @@ interface execute_memory_if (
         output zero,
         output opcode,
         output valid,
-        input ready
+        input ready,
+        output decoded_instr
     );
 
     modport memory_in (
@@ -31,7 +33,8 @@ interface execute_memory_if (
         input zero,
         input opcode,
         input valid,
-        output ready
+        output ready,
+        input decoded_instr
     );
 
 endinterface: execute_memory_if
