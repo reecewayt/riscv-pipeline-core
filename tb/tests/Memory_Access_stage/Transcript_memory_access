@@ -1,0 +1,47 @@
+# vsim -c -do "run -all; quit -f" work.memory_access_tb 
+# Start time: 01:32:44 on Nov 27,2024
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Sim-64
+# //  Version 2021.3_1 linux_x86_64 Aug 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.riscv_pkg(fast)
+# Loading work.execute_memory_if_sv_unit(fast)
+# Loading work.fetch_memory_if_sv_unit(fast)
+# Loading work.memory_writeback_if_sv_unit(fast)
+# Loading work.memory_access_tb(fast)
+# Loading work.data_cache_sv_unit(fast)
+# Loading work.memory_access(fast)
+# run -all
+# Test 1: Reset Check
+# Time=50 rst_n=0 WE=0 RE=0 Addr=00000000 Data=00000000 ReadData=00000000 LMD=00000000 condpc=00000000
+# Test 2: Memory Write
+# Time=110 rst_n=1 WE=1 RE=0 Addr=00000004 Data=abcd1234 ReadData=00000000 LMD=00000000 condpc=00000000
+# Test 3: Memory Read
+# Time=170 rst_n=1 WE=0 RE=1 Addr=00000004 Data=abcd1234 ReadData=abcd1234 LMD=abcd1234 condpc=00000000
+# Test 4: Write Different Location
+# Time=220 rst_n=1 WE=1 RE=0 Addr=00000008 Data=87654321 ReadData=abcd1234 LMD=abcd1234 condpc=00000000
+# Test 5: Read Different Location
+# Time=270 rst_n=1 WE=0 RE=1 Addr=00000008 Data=87654321 ReadData=87654321 LMD=87654321 condpc=00000000
+# Test 6: Conditional PC Test
+# Time=320 rst_n=1 WE=0 RE=1 Addr=00000100 Data=87654321 ReadData=00000000 LMD=87654321 condpc=00000100
+# Time=370 rst_n=1 WE=0 RE=1 Addr=00000100 Data=87654321 ReadData=00000000 LMD=87654321 condpc=00000200
+# Test 6: JAL PC Test
+# Time=420 rst_n=1 WE=0 RE=1 Addr=00000300 Data=87654321 ReadData=00000000 LMD=00000200 condpc=00000300
+# Time=470 rst_n=1 WE=0 RE=1 Addr=00000300 Data=87654321 ReadData=00000000 LMD=00000200 condpc=00000300
+# Tests completed
+# ** Note: $finish    : Memory_access_tb.sv(128)
+#    Time: 580 ns  Iteration: 0  Instance: /memory_access_tb
+# End time: 01:32:46 on Nov 27,2024, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
