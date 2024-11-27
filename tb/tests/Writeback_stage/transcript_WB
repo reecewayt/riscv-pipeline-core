@@ -1,0 +1,56 @@
+# Reading pref.tcl
+# //  Questa Sim-64
+# //  Version 2021.3_1 linux_x86_64 Aug 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading project wb
+# Compile of riscv_pkg.sv was successful.
+# Compile of writeback_unit.sv failed with 2 errors.
+# Compile of riscv_pkg.sv was successful.
+# Compile of memory_writeback_if.sv was successful.
+# Compile of register_file_if.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of writeback_stage_tb.sv was successful.
+# 6 compiles, 1 failed with 2 errors.
+# Compile of writeback_unit.sv was successful.
+# Compile of writeback_unit.sv was successful.
+# Compile of riscv_pkg.sv was successful.
+# Compile of memory_writeback_if.sv was successful.
+# Compile of register_file_if.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of writeback_stage_tb.sv was successful.
+# 6 compiles, 0 failed with no errors.
+vsim -voptargs=+acc work.writeback_stage_tb
+# vsim -voptargs="+acc" work.writeback_stage_tb 
+# Start time: 01:39:15 on Nov 27,2024
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading sv_std.std
+# Loading work.riscv_pkg(fast)
+# Loading work.writeback_stage_tb(fast)
+# Loading work.register_file_if(fast__1)
+# Loading work.memory_writeback_if_sv_unit(fast)
+# Loading work.memory_writeback_if(fast__1)
+# Loading work.writeback_stage(fast)
+run -all
+# Test case 1 passed: rd_data = 12345678
+# Test case 2 passed: rd_data = 87654321
+# Test case 3 passed: x0 remains zero
+# Test case 4 passed: No write when write_en is low
+# ** Note: $finish    : /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Writeback_stage/writeback_stage_tb.sv(119)
+#    Time: 50 ns  Iteration: 0  Instance: /writeback_stage_tb
+# 1
+# Break in Module writeback_stage_tb at /u/ragha/Final_project_sv/riscv-pipeline-core/tb/tests/Writeback_stage/writeback_stage_tb.sv line 119
+quit -sim
+# End time: 01:39:34 on Nov 27,2024, Elapsed time: 0:00:19
+# Errors: 0, Warnings: 12
+quit
