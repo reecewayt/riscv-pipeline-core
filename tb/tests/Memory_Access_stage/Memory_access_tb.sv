@@ -20,11 +20,12 @@ module memory_access_tb;
     // Declare signals
     logic clk;
     logic rst_n;
-    
+    import riscv_pkg::*;
     // Interface instantiations
-    memory_writeback_if mem_if();
-    memory_fetch_if fetch_if();
-    execute_memory_if e_m_if();
+  memory_writeback_if mem_if(clk);
+  memory_fetch_if fetch_if(clk);
+  execute_memory_if e_m_if(clk);
+  
     
     // Instantiate the DUT (Device Under Test)
     memory_access DUT (
@@ -73,6 +74,7 @@ module memory_access_tb;
         // Test 3: Read from memory
         $display("Test 3: Memory Read");
         #10;
+      e_m_if.opcode = OPCODE_LOAD;
         mem_if.RE = 1;
         mem_if.WE = 0;
         e_m_if.alu_result = 32'h4;  // Same address to read
@@ -91,15 +93,28 @@ module memory_access_tb;
         
         // Test 5: Read different location
         $display("Test 5: Read Different Location");
+      e_m_if.opcode = OPCODE_LOAD;
         mem_if.RE = 1;
         e_m_if.alu_result = 32'h8;
         display();
         #10;
         
-        // Test 6: Test conditional PC
+        // Test 6: Test Branch conditional PC
         $display("Test 6: Conditional PC Test");
+        e_m_if.opcode = OPCODE_BRANCH;
         e_m_if.zero = 1;
         e_m_if.alu_result = 32'h100;  // Branch target
+        mem_if.npc = 32'h200;         // Next PC
+        display();
+        #10;
+        e_m_if.zero = 0;
+        display();
+        #10;
+      
+       // Test 7: Test JAL conditional PC
+      $display("Test 6: JAL PC Test");
+        e_m_if.opcode = OPCODE_JAL;
+        e_m_if.alu_result = 32'h300;  // Branch target
         mem_if.npc = 32'h200;         // Next PC
         display();
         #10;
