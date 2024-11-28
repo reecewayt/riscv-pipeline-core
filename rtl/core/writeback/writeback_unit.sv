@@ -27,7 +27,7 @@ module writeback_stage (
     // Select data for writeback
     logic [XLEN-1:0] wb_data;
   always_comb begin
-    if(mw_if.opcode == OPCODE_LOAD)
+     if(mw_if.opcode == OPCODE_LOAD || mw_if.opcode == OPCODE_JAL || mw_if.opcode == OPCODE_JALR)
       wb_data = mw_if.LMD;
     else
       wb_data = mw_if.alu_result;
