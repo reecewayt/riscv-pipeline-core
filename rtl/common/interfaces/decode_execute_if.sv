@@ -20,8 +20,8 @@ interface decode_execute_if (
     modport execute_in (
         input clk,
         input decoded_instr,
-        input valid,
-        output ready
+        output valid,
+        input ready
     );
 
 endinterface: decode_execute_if
