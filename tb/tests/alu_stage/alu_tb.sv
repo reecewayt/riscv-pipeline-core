@@ -18,7 +18,7 @@ module alu_tb;
     alu #(
         .N(N)
     ) alu_inst (
-        .de_if(de_if.decode_out),
+        .de_if(de_if.execute_in),
         .em_if(em_if.execute_out)
     );
 
