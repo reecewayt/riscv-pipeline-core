@@ -33,6 +33,9 @@ module memory_access(
         .rst_n(rst_n)
     );
   import riscv_pkg::*;
+
+ assign mw_if.opcode = e_m_if.opcode; //pass opcode to writeback stage
+  assign mw_if.decoded_instr.rd = e_m_if.decoded_instr.rd; // Pass rd to writeback stage
   
   always_ff@(posedge clk or negedge rst_n) begin
     if(!rst_n)
@@ -56,6 +59,7 @@ module memory_access(
         default:mem_if.condpc = mem_if.npc;
       endcase
     end
+ assign mem_if.alu_result = e_m_if.alu_result;//Pass ALU result to writeback stage
   
 endmodule
 
