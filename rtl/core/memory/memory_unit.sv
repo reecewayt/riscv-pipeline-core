@@ -2,16 +2,20 @@
 // Module: Memory Access Unit
 //
 // Description:
-// This module implements the memory access stage of the RISCV processor. It
-// handles data memory operations Load/Store(read/write) and updates the Load 
-// Memory Data (LMD) and conditional program counter (condpc) signals.
+// This module implements the memory access stage of the RISC-V processor.
+// It handles the following operations:
+// - **Load**: Reads data from memory and updates the `Load Memory Data (LMD)` signal.
+// - **Store**: Writes data to memory through the `data_memory` module.
+// - **Conditional Branching**: Computes the conditional program counter (`condpc`) based on
+//   branch conditions or jump instructions (JAL, JALR).
 //
 // Interfaces:
 // - memory_writeback_if, execute_memory_if, memory_fetch_if
 //
 // Outputs:
 // - Updates `mem_if.LMD` with data read from memory during load operations.
-// - Updates `mem_if.condpc` for conditional branching based on ALU results.
+// - Updates `mem_if.condpc` to reflect the correct program counter based on branch or jump decisions.
+// - Integrates the `data_memory` module to perform memory read/write operations.
 //
 ///////////////////////////////////////////////////////////////////////
 module memory_access(
@@ -28,16 +32,34 @@ module memory_access(
         .clk(clk),
         .rst_n(rst_n)
     );
+  import riscv_pkg::*;
+
+ assign mw_if.opcode = e_m_if.opcode; //pass opcode to writeback stage
+  assign mw_if.decoded_instr.rd = e_m_if.decoded_instr.rd; // Pass rd to writeback stage
   
-    // Explicit LMD update logic
-    always_ff@(posedge clk or negedge rst_n) begin
-        if(!rst_n)
-            mem_if.LMD <= 32'h00000000;
-        else if(mem_if.RE)
-            // Directly capture read_data when RE is high
-            mem_if.LMD <= mem_if.read_data;
+  always_ff@(posedge clk or negedge rst_n) begin
+    if(!rst_n)
+       mem_if.LMD <= 32'h00000000;
+    else begin
+      case (e_m_if.opcode)
+        OPCODE_LOAD: mem_if.LMD <= mem_if.read_data;
+        OPCODE_JAL: mem_if.LMD <= mem_if.npc;
+        OPCODE_JALR: mem_if.LMD <= mem_if.npc;
+        default:mem_if.LMD <= mem_if.LMD;
+      endcase
     end
+  end
   
     // Use zero signal from execute_memory interface to drive condpc
-    assign mem_if.condpc = e_m_if.zero ? e_m_if.alu_result : mem_if.npc;
+    always_comb begin
+      case(e_m_if.opcode)
+        OPCODE_BRANCH: mem_if.condpc = e_m_if.zero ? e_m_if.alu_result : mem_if.npc;
+        OPCODE_JAL: mem_if.condpc = e_m_if.alu_result;
+        OPCODE_JALR: mem_if.condpc = e_m_if.alu_result;
+        default:mem_if.condpc = mem_if.npc;
+      endcase
+    end
+ assign mem_if.alu_result = e_m_if.alu_result;//Pass ALU result to writeback stage
+  
 endmodule
+

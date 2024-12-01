@@ -1,0 +1,168 @@
+# Reading pref.tcl
+# //  Questa Sim-64
+# //  Version 2021.3_1 linux_x86_64 Aug 15 2021
+# //
+# //  Copyright 1991-2021 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+project open /u/ragha/Final_project_sv/riscv-pipeline-core/rtl/top/RISC_TOP.mpf
+# Loading project RISC_TOP
+# Compile of riscv_core_top.sv was successful.
+# Compile of decode_execute_if.sv was successful.
+# Compile of execute_memory_if.sv was successful.
+# Compile of fetch_decode_if.sv was successful.
+# Compile of fetch_memory_if.sv was successful.
+# Compile of memory_writeback_if.sv was successful.
+# Compile of register_file_if.sv was successful.
+# Compile of riscv_pkg.sv was successful.
+# Compile of decode_unit.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of instruction_memory.sv was successful.
+# Compile of data_cache.sv was successful.
+# Compile of memory_unit.sv was successful.
+# Compile of writeback_unit.sv was successful.
+# Compile of simple_top_tb.sv was successful.
+# 17 compiles, 0 failed with no errors.
+vsim -voptargs=+acc work.simple_top_tb
+# vsim -voptargs="+acc" work.simple_top_tb 
+# Start time: 21:13:55 on Nov 27,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading sv_std.std
+# Loading work.riscv_pkg(fast)
+# Loading work.simple_top_tb(fast)
+# Loading work.fetch_decode_if_sv_unit(fast)
+# Loading work.fetch_decode_if(fast__1)
+# Loading work.decode_execute_if_sv_unit(fast)
+# Loading work.decode_execute_if(fast__1)
+# Loading work.execute_memory_if_sv_unit(fast)
+# Loading work.execute_memory_if(fast__1)
+# Loading work.memory_writeback_if_sv_unit(fast)
+# Loading work.memory_writeback_if(fast__1)
+# Loading work.fetch_memory_if_sv_unit(fast)
+# Loading work.memory_fetch_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.riscv_top(fast)
+# Loading work.instruction_fetch(fast)
+# Loading work.instruction_memory(fast)
+# Loading work.decode(fast)
+# Loading work.alu_sv_unit(fast)
+# Loading work.alu(fast)
+# Loading work.memory_access(fast)
+# Loading work.data_cache_sv_unit(fast)
+# Loading work.data_memory(fast)
+# Loading work.writeback_stage(fast)
+run -all
+# ------------Test 1: Reset Check------------
+#   Decoded Instruction: 
+#   Opcode: 0000000
+#   Destination Register (rd): 0
+#   Source Register 1 (rs1): 0
+#   Source Register 2 (rs2): 0
+#   Register A value: 00000000
+#   Register B value: 00000000
+#   ALU result value: x
+#   ALU condition flag: 0
+#   REG_B Forward: 0
+#    LMD Register: 00000000
+#    CondPC: 00000004
+#    Written back at 0 (rd): 0
+# ------------Test 2: R-type Instruction (ADD)------------
+#   Decoded Instruction: 
+#   Opcode: 0110011
+#   Destination Register (rd): 4
+#   Source Register 1 (rs1): 2
+#   Source Register 2 (rs2): 3
+#   Register A value: 0000000a
+#   Register B value: 0000000f
+#   ALU result value: 25
+#   ALU condition flag: 0
+#   REG_B Forward: 15
+#    LMD Register: 00000000
+#    CondPC: 00000004
+#    Written back at 4 (rd): 25
+# ------------Test 3: I-type Instruction (ADDI)------------
+#    Decoded Instruction: 
+#   Opcode: 0010011
+#   Destination Register (rd): 2
+#   Source Register 1 (rs1): 2
+#   Immediate Value: 00000000
+#   ALU result value: 15
+#   ALU condition flag: 0
+#   REG_B Forward: 15
+#    LMD Register: 00000000
+#    CondPC: 00000008
+#    Written back at 2 (rd): 15
+# ------------Test 4: Store Instruction------------
+#    Decoded Instruction: 
+#   Opcode: 0100011
+#   Source Register 1 (rs1): 5
+#   Source Register 2 (rs2): 10
+#   Immediate Value: 00000000
+#   ALU result value: 14
+#   ALU condition flag: 0
+#   REG_B Forward: 15
+#    LMD Register: 00000000
+#    CondPC: 0000000c
+#    Data written to Data memory: 0000000f
+#    Written back at 0 (rd): 0
+# ------------Test 5: Load Instruction------------
+#    Decoded Instruction: 
+#   Opcode: 0000011
+#   Source Register 1 (rs1): 5
+#   Source Register 2 (rs2): 0
+#   Immediate Value: 00000000
+#   ALU result value: 14
+#   ALU condition flag: 0
+#   REG_B Forward: 15
+#    LMD Register: 0000000f
+#    CondPC: 00000010
+#    Data written to Data memory: 0000000f
+#    Written back at 5 (rd): 15
+# ------------Test 6: JAL Instruction------------
+#    Decoded Instruction: 
+#   Opcode: 1101111
+#   Destination Register (rd): 8
+#   Source Register 1 (rs1): 0
+#   Source Register 2 (rs2): 0
+#   Immediate Value: 00000000
+#   ALU result value: 16
+#   ALU condition flag: 0
+#   REG_B Forward: 15
+#    LMD Register: 00000014
+#    CondPC: 16
+#    NPC: 20
+#    Data written to Data memory: 0000000f
+#    Written back at 8 (rd): 20
+# ------------Test 7: Branch instruction------------
+#    Decoded Instruction: 
+#   Opcode: 1100011
+#   Destination Register (rd): 0
+#   Source Register 1 (rs1): 2
+#   Source Register 2 (rs2): 3
+#   Immediate Value: 00000000
+#   ALU result value: 0
+#   ALU condition flag: 1
+#   REG_B Forward: 15
+#    LMD Register: 00000018
+#    CondPC: 0
+#    NPC: 24
+#    Data written to Data memory: 0000000f
+#    Written back at 0 (rd): 0
+# ** Note: $finish    : /u/ragha/Final_project_sv/riscv-pipeline-core/rtl/top/simple_top_tb.sv(201)
+#    Time: 420 ns  Iteration: 0  Instance: /simple_top_tb
+# 1
+# Break in Module simple_top_tb at /u/ragha/Final_project_sv/riscv-pipeline-core/rtl/top/simple_top_tb.sv line 201
+quit -sim
+# End time: 21:14:26 on Nov 27,2024, Elapsed time: 0:00:31
+# Errors: 0, Warnings: 2
+quit

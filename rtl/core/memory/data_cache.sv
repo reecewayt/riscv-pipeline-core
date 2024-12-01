@@ -1,3 +1,5 @@
+import riscv_pkg::*;
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 // Module: Data Cache
 // 
@@ -19,6 +21,7 @@ module data_memory(
     input logic clk,
     input logic rst_n
 );
+    import riscv_pkg::*;
     logic [31:0] D_M [1023:0]; // 32x1024 memory array
     
     always_ff @(posedge clk or negedge rst_n) begin
@@ -29,10 +32,11 @@ module data_memory(
         end
         else if (mem_if.WE) begin
             // Use ALU result as memory address
-          D_M[e_m_if.alu_result[11:2]] <= mem_if.REG_B;
+          D_M[e_m_if.alu_result] <= e_m_if.rs2_data;
         end
     end
     
     // Assign read_data based on RE (Read Enable)
-    assign mem_if.read_data = mem_if.RE ? D_M[e_m_if.alu_result[11:2]] : 32'd0;
+  assign mem_if.read_data = mem_if.RE ? D_M[e_m_if.alu_result] : mem_if.LMD;
 endmodule
+
