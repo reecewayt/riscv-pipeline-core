@@ -32,12 +32,14 @@ MEMORY_DIR := $(CORE_DIR)/memory
 WRITEBACK_DIR := $(CORE_DIR)/writeback
 
 # Find all SystemVerilog files for the core
+# ADD MORE DIRECTORIES HERE IF NEEDED
 COMMON_FILES := $(shell find $(COMMON_DIR) -type f -name "*.sv" 2>/dev/null)
-CORE_FILES := $(shell find $(RTL_DIR)/core -type f -name "*.sv" 2>/dev/null)
+CORE_FILES := $(shell find $(RTL_DIR)/core $(RTL_DIR)/top -type f -name "*.sv" 2>/dev/null)
 TB_COMMON_FILES := $(shell find $(TB_DIR)/common -type f -name "*.sv" 2>/dev/null)
 
 # Top-level testbench file
 TOP_TB := $(TB_DIR)/top/tb_top.sv
+TB_TOP_MODULE = riscv_top_tb 		# Top-level testbench module
 
 # Unit tests or module level testbenches
 UNIT_TESTS := fetch decode alu register_file memory_access
@@ -97,7 +99,7 @@ compile_tb:
 simulate: compile
 	@printf "$(BLUE)Starting top-level simulation...$(NC)\n"
 	@printf "$(YELLOW)Running in $(if $(filter 1,$(GUI)),GUI,command-line) mode$(NC)\n"
-	@vsim $(VSIM_FLAGS) work.tb_top || (printf "$(RED)Simulation failed!$(NC)\n" && exit 1)
+	@vsim $(VSIM_FLAGS) work.$(TB_TOP_MODULE) || (printf "$(RED)Simulation failed!$(NC)\n" && exit 1)
 	@printf "$(GREEN)Simulation completed successfully!$(NC)\n"
 
 regression: compile
