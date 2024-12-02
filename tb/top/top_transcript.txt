@@ -1,0 +1,71 @@
+# Compile of riscv_core_top.sv was successful.
+# Compile of decode_execute_if.sv was successful.
+# Compile of execute_memory_if.sv was successful.
+# Compile of fetch_decode_if.sv was successful.
+# Compile of fetch_memory_if.sv was successful.
+# Compile of memory_writeback_if.sv was successful.
+# Compile of register_file_if.sv was successful.
+# Compile of riscv_pkg.sv was successful.
+# Compile of decode_unit.sv was successful.
+# Compile of register_file.sv was successful.
+# Compile of alu.sv was successful.
+# Compile of fetch_unit.sv was successful.
+# Compile of instruction_memory.sv was successful.
+# Compile of data_cache.sv was successful.
+# Compile of memory_unit.sv was successful.
+# Compile of writeback_unit.sv was successful.
+# Compile of tb_top.sv was successful.
+# 17 compiles, 0 failed with no errors.
+vsim -voptargs=+acc work.riscv_top_tb
+# vsim -voptargs="+acc" work.riscv_top_tb 
+# Start time: 16:04:51 on Dec 01,2024
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# Loading sv_std.std
+# Loading work.riscv_pkg(fast)
+# Loading work.riscv_top_tb(fast)
+# Loading work.fetch_decode_if_sv_unit(fast)
+# Loading work.fetch_decode_if(fast__1)
+# Loading work.decode_execute_if_sv_unit(fast)
+# Loading work.decode_execute_if(fast__1)
+# Loading work.execute_memory_if_sv_unit(fast)
+# Loading work.execute_memory_if(fast__1)
+# Loading work.memory_writeback_if_sv_unit(fast)
+# Loading work.memory_writeback_if(fast__1)
+# Loading work.fetch_memory_if_sv_unit(fast)
+# Loading work.memory_fetch_if(fast__1)
+# Loading work.register_file_if(fast__1)
+# Loading work.riscv_top(fast)
+# Loading work.instruction_fetch(fast)
+# Loading work.instruction_memory(fast)
+# Loading work.decode(fast)
+# Loading work.alu_sv_unit(fast)
+# Loading work.alu(fast)
+# Loading work.memory_access(fast)
+# Loading work.data_cache_sv_unit(fast)
+# Loading work.data_memory(fast)
+# Loading work.writeback_stage(fast)
+run -all
+# Starting RISC-V Pipeline Tests...
+# Running Test: R-type ADD
+# Test R-type ADD PASSED
+# Running Test: I-type ADDI
+# Test I-type ADDI PASSED
+# Running Test: Store-type
+# Test Store-type PASSED
+# Running Test: Load-type
+# Test Load-type PASSED
+# Running Test: Jump-type
+# Test Jump-type PASSED
+# Running Test: Branch-type
+# Test Branch-type PASSED
+# 
+# Test Summary:
+# Tests run: 6
+# Errors: 0
+# ** Note: $finish    : /u/ragha/Final_project_sv/riscv-pipeline-core/tb/top/tb_top.sv(289)
+#    Time: 320 ns  Iteration: 0  Instance: /riscv_top_tb
+# 1
+# Break in Module riscv_top_tb at /u/ragha/Final_project_sv/riscv-pipeline-core/tb/top/tb_top.sv line 289
+quit -sim
+# End time: 16:05:01 on Dec 01,2024, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 2

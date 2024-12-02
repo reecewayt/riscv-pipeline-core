@@ -34,8 +34,8 @@ module memory_access(
     );
   import riscv_pkg::*;
 
- assign mw_if.opcode = e_m_if.opcode; //pass opcode to writeback stage
-  assign mw_if.decoded_instr.rd = e_m_if.decoded_instr.rd; // Pass rd to writeback stage
+ assign mem_if.opcode = e_m_if.opcode; //pass opcode to writeback stage
+  assign mem_if.decoded_instr.rd = e_m_if.decoded_instr.rd; // Pass rd to writeback stage
   
   always_ff@(posedge clk or negedge rst_n) begin
     if(!rst_n)
