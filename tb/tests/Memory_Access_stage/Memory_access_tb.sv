@@ -49,7 +49,7 @@ module memory_access_tb;
         rst_n = 1;
         mem_if.WE = 0;
         mem_if.RE = 0;
-        mem_if.REG_B = 32'h0;
+        e_m_if.rs2_data = 32'h0;
         e_m_if.alu_result = 32'h0;
         e_m_if.zero = 0;
         mem_if.npc = 32'h0;
@@ -66,7 +66,7 @@ module memory_access_tb;
         mem_if.WE = 1;
         mem_if.RE = 0;
         e_m_if.alu_result = 32'h4;  // Memory address
-        mem_if.REG_B = 32'hABCD1234;  // Data to write
+        e_m_if.rs2_data = 32'hABCD1234;  // Data to write
         display();
         #10;
         mem_if.WE = 0;
@@ -86,7 +86,7 @@ module memory_access_tb;
         mem_if.RE = 0;
         mem_if.WE = 1;
         e_m_if.alu_result = 32'h8;  // Different memory address
-        mem_if.REG_B = 32'h87654321;  // Different data
+        e_m_if.rs2_data = 32'h87654321;  // Different data
         display();
         #10;
         mem_if.WE = 0;
@@ -137,7 +137,7 @@ module memory_access_tb;
                  mem_if.WE,
                  mem_if.RE,
                  e_m_if.alu_result,
-                 mem_if.REG_B,
+                 e_m_if.rs2_data,
                  mem_if.read_data,
                  mem_if.LMD,
                  mem_if.condpc);
