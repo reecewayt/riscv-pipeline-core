@@ -1,3 +1,55 @@
+// File Name:     riscv_top_tb.sv
+// Description:   Testbench for RISC-V Top-Level Module (riscv_top).
+//                - Validates functionality of the RISC-V pipeline stages
+//                - Tests fetch, decode, execute, memory, and writeback stages
+//                - Simulates RISC-V instructions using predefined test vectors
+//                - Compares results with expected outputs for verification
+//
+// Features:      - Clock generation (10 ns period)
+//                - Instantiates the `riscv_top` design under test (DUT)
+//                - Tests multiple instruction types:
+//                   - R-type (register-register)
+//                   - I-type (immediate)
+//                   - Store (S-type)
+//                   - Load (L-type)
+//                   - Branch (B-type)
+//                   - Jump (J-type)
+//                - Validates instruction decoding, ALU results, memory access,
+//                  and writeback values
+//
+// Interface:     - Uses pipeline stage interfaces from `riscv_pkg`:
+//                   - fetch_decode_if: Fetch to Decode interface
+//                   - decode_execute_if: Decode to Execute interface
+//                   - execute_memory_if: Execute to Memory interface
+//                   - memory_writeback_if: Memory to Writeback interface
+//                   - memory_fetch_if: Memory to Fetch interface
+//                   - register_file_if: Register file interface
+//
+// Parameters:    - None (uses interfaces and definitions from `riscv_pkg`)
+//
+// Testbench Structure:
+//                - Defines `test_case_t` struct to represent a single test case
+//                - Includes an array of test cases (`test_vectors`) covering
+//                  various instruction types and scenarios
+//                - Executes tests sequentially:
+//                   1. Initializes inputs for DUT
+//                   2. Waits for the DUT to process the instruction
+//                   3. Compares DUT outputs with expected results
+//                   4. Displays detailed information for debugging
+//                - Tracks and reports test pass/fail results
+//
+// Dependencies:  - riscv_top.sv
+//                - riscv_pkg.sv
+//                - Pipeline stage interfaces 
+//
+// Notes:         - Extensible test structure: additional test cases can be
+//                  added to the `test_vectors` array
+//                - Handles clock/reset initialization and propagation
+//                - Reports detailed errors when test cases fail
+///////////////////////////////////////////////////////////////////////////////
+
+
+
 module riscv_top_tb;
     import riscv_pkg::*;
 
