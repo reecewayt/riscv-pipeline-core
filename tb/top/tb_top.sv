@@ -1,4 +1,5 @@
 // File Name:     riscv_top_tb.sv
+// Author:        Raghavendra Davarapalli
 // Description:   Testbench for RISC-V Top-Level Module (riscv_top).
 //                - Validates functionality of the RISC-V pipeline stages
 //                - Tests fetch, decode, execute, memory, and writeback stages
