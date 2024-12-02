@@ -23,7 +23,7 @@ NC := \033[0m # No Color
 PACKAGES := $(COMMON_DIR)/packages/riscv_pkg.sv
 
 INTERFACES := $(COMMON_DIR)/interfaces/fetch_decode_if.sv \
-              $(COMMON_DIR)/interfaces/fetch_memory_interface.sv \
+              $(COMMON_DIR)/interfaces/fetch_memory_if.sv \
               $(COMMON_DIR)/interfaces/memory_writeback_if.sv
 
 RTL_FILES := $(RTL_DIR)/core/fetch/instruction_memory.sv \
