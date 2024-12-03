@@ -261,25 +261,25 @@ module riscv_top_tb;
             end
 
           if(de_if.decoded_instr.opcode==OPCODE_REG_REG) begin
-            if (rf_if.data_out_rs1 + rf_if.data_out_rs2 != test.expected_result) begin
+            if (em_if.alu_result != test.expected_result) begin
                 $error("Test %s: Result mismatch. Expected %h, Got %h",
-                    test.test_name, test.expected_result, rf_if.data_out_rs1 + rf_if.data_out_rs2);
+                    test.test_name, test.expected_result, em_if.alu_result);
                 error_count++;
             end
           end
           
           else if(de_if.decoded_instr.opcode==OPCODE_REG_IMM) begin
-             if (rf_if.data_out_rs1 + de_if.decoded_instr.imm != test.expected_result) begin
+             if (em_if.alu_result != test.expected_result) begin
                 $error("Test %s: Result mismatch. Expected %h, Got %h",
-                    test.test_name, test.expected_result, rf_if.data_out_rs1 + de_if.decoded_instr.imm);
+                    test.test_name, test.expected_result, em_if.alu_result);
                 error_count++;
             end
           end
           
           else if(de_if.decoded_instr.opcode==OPCODE_STORE) begin
-            if (rf_if.data_out_rs1 + de_if.decoded_instr.imm != test.expected_result) begin
+            if (em_if.alu_result != test.expected_result) begin
                 $error("Test %s: Result mismatch. Expected %h, Got %h",
-                    test.test_name, test.expected_result, rf_if.data_out_rs1 + de_if.decoded_instr.imm);
+                    test.test_name, test.expected_result, em_if.alu_result);
                 error_count++;
             end
           end
@@ -308,7 +308,7 @@ module riscv_top_tb;
             end
           end
 
-            $display("Test %s %s", test.test_name, (error_count == 0) ? "PASSED" : "FAILED");
+            
             
             
           
@@ -335,6 +335,7 @@ module riscv_top_tb;
         end
 
         // Test Summary
+        $display("Tests Completed!");
         $display("\nTest Summary:");
         $display("Tests run: %0d", test_count);
         $display("Errors: %0d", error_count);
