@@ -3,7 +3,9 @@ Project: RISC-V ALU module
 Author: Phil N
 Date: 11/20/2024
 ECE 571 Group Project
-V2.0
+
+V2.1
+Last Update: 12/3/2024
 
 This module is the ALU for the RISCV processor.
 */
@@ -34,13 +36,19 @@ module alu #(
         logic_result = 32'd0;
 	      compare_result = 32'd0;
 	      imm_result = 32'd0;
-        em_if.zero = 1'b0;
         em_if.rs2_data = de_if.decoded_instr.reg_B;  // Pass reg_B directly for memory stage use in store instructions
         em_if.opcode = de_if.decoded_instr.opcode;   // Pass opcode to the memory stage
         em_if.decoded_instr.rd=de_if.decoded_instr.rd;//Pass destination register to Memory access Stage to be passed to Write_back Stage
 
         // Immediate sign extension for I-type instructions
-        imm_extended = {{20{de_if.decoded_instr.imm[11]}}, de_if.decoded_instr.imm};
+if (de_if.decoded_instr.funct3 == F3_AND || 
+    de_if.decoded_instr.funct3 == F3_OR || 
+    de_if.decoded_instr.funct3 == F3_XOR) begin
+    imm_extended = {20'b0, de_if.decoded_instr.imm}; // Zero-extend
+end else begin
+    imm_extended = {{20{de_if.decoded_instr.imm[11]}}, de_if.decoded_instr.imm}; // Sign-extend
+end
+
 
         // Only compute if valid signal is asserted
         if (de_if.valid && em_if.ready) begin
@@ -87,11 +95,13 @@ module alu #(
                         F3_AND: em_if.alu_result = de_if.decoded_instr.reg_A & imm_extended;     // ANDI
                         F3_XOR: em_if.alu_result = de_if.decoded_instr.reg_A ^ imm_extended;     // XORI
                         F3_SLL: em_if.alu_result = de_if.decoded_instr.reg_A << imm_extended[4:0]; // SLLI
+				    F3_SLT: em_if.alu_result = ($signed(de_if.decoded_instr.reg_A) < $signed(imm_extended)) ? 32'd1 : 32'd0; // SLTI
+				    F3_SLTU: em_if.alu_result = (de_if.decoded_instr.reg_A < imm_extended) ? 32'd1 : 32'd0; // SLTIU
                         F3_SRL_SRA: begin
                             if (de_if.decoded_instr.funct7 == F7_ADD_SRL)
                                 em_if.alu_result = de_if.decoded_instr.reg_A >> imm_extended[4:0]; // SRLI
                             else if (de_if.decoded_instr.funct7 == F7_SUB_SRA)
-                                em_if.alu_result = de_if.decoded_instr.reg_A >>> imm_extended[4:0]; // SRAI
+                                em_if.alu_result = $signed(de_if.decoded_instr.reg_A) >>> imm_extended[4:0]; // SRAI
                         end
                       
                         default: em_if.alu_result = 32'd0; // Unsupported operation
@@ -100,19 +110,25 @@ module alu #(
 
 
 				//BRANCH
-                OPCODE_BRANCH: begin
-                    case (de_if.decoded_instr.funct3)
-                        F3_ADD_SUB: em_if.zero = (de_if.decoded_instr.reg_A == de_if.decoded_instr.reg_B); // BEQ
-                        F3_OR: em_if.zero = (de_if.decoded_instr.reg_A != de_if.decoded_instr.reg_B); // BNE
-                        F3_SLT: em_if.zero = ($signed(de_if.decoded_instr.reg_A) < $signed(de_if.decoded_instr.reg_B)); // BLT
-                        F3_SLTU: em_if.zero = (de_if.decoded_instr.reg_A < de_if.decoded_instr.reg_B); // BLTU
-                        default: em_if.zero = 1'b0; // Default to false for unsupported branches
-                    endcase
-                end
+OPCODE_BRANCH: begin
+    case (de_if.decoded_instr.funct3)
+        F3_ADD_SUB: 	em_if.zero = (de_if.decoded_instr.reg_A == de_if.decoded_instr.reg_B); // BEQ
+        F3_OR:		em_if.zero = (de_if.decoded_instr.reg_A != de_if.decoded_instr.reg_B); // BNE
+        F3_SLT:         em_if.zero = ($signed(de_if.decoded_instr.reg_A) < $signed(de_if.decoded_instr.reg_B)); // BLT
+        F3_SLTU:	em_if.zero = (de_if.decoded_instr.reg_A < de_if.decoded_instr.reg_B); // BLTU
+        default: begin
+            em_if.zero = 1'b0; // Default
+            $display("Unsupported branch condition");
+        end
+    endcase
+end
 
         //LOAD/STORE
                 OPCODE_LOAD: em_if.alu_result = de_if.decoded_instr.reg_A + imm_extended; // Compute load address
-                OPCODE_STORE: em_if.alu_result = de_if.decoded_instr.reg_A + imm_extended; // Compute store address
+				OPCODE_STORE: begin
+					imm_extended = {{20{de_if.decoded_instr.imm[11]}}, de_if.decoded_instr.imm}; // Ensure sign-extension
+					em_if.alu_result = de_if.decoded_instr.reg_A + imm_extended; // Compute effective address
+				end
 
        //JUMP
                 OPCODE_JAL: em_if.alu_result = de_if.decoded_instr.pc + {{11{imm_extended[20]}}, imm_extended}; // JAL
@@ -123,7 +139,7 @@ module alu #(
             endcase
 
             // Set zero flag for conditional branching
-            em_if.zero = (em_if.alu_result == 32'd0);
+            // em_if.zero = (em_if.alu_result == 32'd1);
         end
 
         // Pass valid signal to the next stage
