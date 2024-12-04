@@ -1,14 +1,40 @@
-/*
-Project: RISC-V ALU module
-Author: Phil N
-Date: 11/20/2024
-ECE 571 Group Project
+///////////////////////////////////////////////////////////////////////
+// Module: Arithmetic Logic Unit (ALU)
+//
+// Project: RISC-V ALU Module
+// Author: Phil N
+// Date: 11/20/2024
+// ECE 571 Group Project
+//
+// Version: 2.1
+// Last Update: 12/3/2024
+//
+// Description:
+// This module implements the Arithmetic Logic Unit (ALU) for the RISC-V processor. 
+// It handles various arithmetic, logical, shift, comparison, and branching operations 
+// as specified by the RISC-V ISA.
+//
+// Features:
+// - **Arithmetic**: ADD, SUB
+// - **Logical**: AND, OR, XOR
+// - **Shift**: SLL, SRL, SRA
+// - **Comparison**: SLT, SLTU
+// - **Immediate Handling**: Supports sign-extension and zero-extension for I-type instructions.
+// - **Branching**: Calculates branch target addresses and conditions.
+// - **Jumping**: Handles JAL and JALR instructions.
+//
+// Interfaces:
+// - Input: `decode_execute_if.execute_in` from the Decode stage.
+// - Output: `execute_memory_if.execute_out` to the Memory Access stage.
+//
+// Parameterization:
+// - Data Width: Default is 32 bits (configurable).
+//
+// Notes:
+// - Supports RISC-V base integer instruction set.
+// - Unrecognized operations default to 0.
+///////////////////////////////////////////////////////////////////////
 
-V2.1
-Last Update: 12/3/2024
-
-This module is the ALU for the RISCV processor.
-*/
 
 import riscv_pkg::*;
 
