@@ -81,9 +81,8 @@ module decode (
                 decoded.funct3 = funct3_t'(instruction[14:12]);
                 decoded.rs1 = register_name_t'(instruction[19:15]);
                 decoded.rs2 = register_name_t'(instruction[24:20]);
-                decoded.imm = {{19{instruction[31]}}, instruction[31], instruction[7],
-                             instruction[30:25], instruction[11:8], 1'b0};
-            end
+                decoded.imm = {{19{instruction[31]}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0};
+		end
             
             OPCODE_LUI, OPCODE_AUIPC: begin
                 decoded.rd = register_name_t'(instruction[11:7]);

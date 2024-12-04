@@ -177,20 +177,19 @@ module riscv_top_tb;
       
       },
       
-     '{
-      test_name: "Branch-type",
-        
-            instruction: 32'h00209063,  // // compare x1 and x2 
-            pc: 32'h1018,
-            expected_opcode: OPCODE_BRANCH,
-            expected_rd: 5'h0,      //unused      
-            expected_rs1: 5'h2,     // //Unused
-            expected_rs2: 5'h3,   // Unused
-            reg_a_value: 32'h1, 
-            reg_b_value: 32'hA, 
-            expected_result: 32'd4, //unused
-           register_write: 1'b1
-      }
+'{ 
+    test_name: "Branch-type",
+    instruction: 32'h00209063,  // Assume BEQ
+    pc: 32'h1018,
+    expected_opcode: OPCODE_BRANCH,
+    expected_rd: 5'h0,         // Unused
+    expected_rs1: 5'h2,        // Register 2
+    expected_rs2: 5'h3,        // Register 3
+    reg_a_value: 32'h1, 
+    reg_b_value: 32'hA,        // Values compared
+    expected_result: 32'h101C, // Branch taken (PC + offset)
+    register_write: 1'b0
+}
         // Add more test cases in case of future implementations...
     };
 
@@ -329,8 +328,8 @@ module riscv_top_tb;
       $display("   CondPC: %h", mw_if.condpc);
           $display("   Data written to Data memory: %h", em_if.rs2_data);
           $display("   Written back at %0d (rd): %h",rf_if.rd_addr ,rf_if.rd_data);
-   
-  */
+   */
+  
           
         end
 

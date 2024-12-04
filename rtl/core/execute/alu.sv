@@ -111,6 +111,10 @@ end
 
 				//BRANCH
 OPCODE_BRANCH: begin
+
+	em_if.alu_result = (de_if.decoded_instr.pc + 4) + ($signed(de_if.decoded_instr.imm) << 1); // Compute branch target
+    //$display("Branch Execution: PC=%h, Immediate=%h, Target=%h", de_if.decoded_instr.pc, de_if.decoded_instr.imm, em_if.alu_result);
+
     case (de_if.decoded_instr.funct3)
         F3_ADD_SUB: 	em_if.zero = (de_if.decoded_instr.reg_A == de_if.decoded_instr.reg_B); // BEQ
         F3_OR:		em_if.zero = (de_if.decoded_instr.reg_A != de_if.decoded_instr.reg_B); // BNE
