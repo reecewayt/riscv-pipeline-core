@@ -122,7 +122,7 @@ OPCODE_BRANCH: begin
         F3_SLTU:	em_if.zero = (de_if.decoded_instr.reg_A < de_if.decoded_instr.reg_B); // BLTU
         default: begin
             em_if.zero = 1'b0; // Default
-            $display("Unsupported branch condition");
+            //$display("Unsupported branch condition");
         end
     endcase
 end
